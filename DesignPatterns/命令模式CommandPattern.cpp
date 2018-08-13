@@ -30,28 +30,28 @@ class Command
 {
 public:
 	Command() {}
-	Command(Barbecuer *receiver) :p_receiver(receiver) {}
+	Command(Barbecuer *receiver) :m_pReceiver(receiver) {}
 	virtual void ExecuteCommand() = 0; //执行命令
 protected:
-	Barbecuer *p_receiver;
+	Barbecuer *m_pReceiver;
 };
 
 /*具体命令类:烤羊肉串命令*/
 class BakeMuttonCommand :public Command
 {
 public:
-	BakeMuttonCommand(Barbecuer *receiver) { p_receiver = receiver; }
-	void ExecuteCommand() { p_receiver->BakeMutton(); }
+	BakeMuttonCommand(Barbecuer *pReceiver) { m_pReceiver = pReceiver; }
+	void ExecuteCommand() { m_pReceiver->BakeMutton(); }
 };
 
 /*具体命令类:烤鸡翅串命令*/
 class BakeChickenWingCommand :public Command
 {
 public:
-	BakeChickenWingCommand(Barbecuer *receiver) { p_receiver = receiver; }
+	BakeChickenWingCommand(Barbecuer *receiver) { m_pReceiver = receiver; }
 	void ExecuteCommand()
 	{
-		p_receiver->BakeChickenWing();
+		m_pReceiver->BakeChickenWing();
 	}
 };
 
@@ -62,7 +62,7 @@ public:
 	void SetOrder(Command *command)
 	{
 		p_commandList.push_back(command);
-		cout << "增加烤肉命令" << endl;
+		cout << "增加菜单命令" << endl;
 	}
 
 	void Notify()
@@ -80,25 +80,24 @@ private:
 
 int main(int argc, char *argv[])
 {
-	//生成烤肉师傅、服务员、订单对象
-	Barbecuer *p_cook = new Barbecuer();	// 烤肉师傅
-	Waiter *p_waiter = new Waiter(); // 服务员
+	Barbecuer *pCook = new Barbecuer();	// 烤肉师傅
 
-	Command *p_mutton = new BakeMuttonCommand(p_cook); // 羊肉
-	Command *p_chickenwing = new BakeChickenWingCommand(p_cook); // 鸡翅
+	Command *pMutton = new BakeMuttonCommand(pCook); // 羊肉
+	Command *pChickenWing = new BakeChickenWingCommand(pCook); // 鸡翅
 	
 
-	//将订单对象推送到命令队列
-	p_waiter->SetOrder(p_mutton);
-	p_waiter->SetOrder(p_chickenwing);
+	//将订单对象推送到服务员的命令队列
+	Waiter *pWaiter = new Waiter(); // 服务员
+	pWaiter->SetOrder(pMutton);
+	pWaiter->SetOrder(pChickenWing);
 
 	//服务员通知烤肉师傅具体订单
-	p_waiter->Notify();
+	pWaiter->Notify();
 
-	SAFE_DELETE(p_cook);
-	SAFE_DELETE(p_mutton);
-	SAFE_DELETE(p_chickenwing);
-	SAFE_DELETE(p_waiter);
+	SAFE_DELETE(pCook);
+	SAFE_DELETE(pMutton);
+	SAFE_DELETE(pChickenWing);
+	SAFE_DELETE(pWaiter);
 
 	return 0;
 }
