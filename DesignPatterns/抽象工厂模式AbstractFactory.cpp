@@ -1,7 +1,8 @@
+// 抽象工厂模式 Abstract Factory
+
 #include <iostream>
 using namespace std;
 
-// 抽象工厂模式 Abstract Factory
 //单核  
 class SingleCore
 {
