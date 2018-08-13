@@ -19,6 +19,9 @@
     <Filter Include="源文件\结构型模式">
       <UniqueIdentifier>{4dc2c1f6-48ec-4f51-8708-32f0bcd929aa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\行为型模式">
+      <UniqueIdentifier>{052b5010-0793-4b47-969e-b49e4404b7a0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="享元模式FlyweightPattern.cpp">
@@ -65,6 +68,18 @@
     </ClCompile>
     <ClCompile Include="原型模式PrototypePattern.cpp">
       <Filter>源文件\创建型模式</Filter>
+    </ClCompile>
+    <ClCompile Include="代理模式ProxyPattern.cpp">
+      <Filter>源文件\结构型模式</Filter>
+    </ClCompile>
+    <ClCompile Include="代理模式2ProxyPattern.cpp">
+      <Filter>源文件\结构型模式</Filter>
+    </ClCompile>
+    <ClCompile Include="命令模式Command Pattern.cpp">
+      <Filter>源文件\行为型模式</Filter>
+    </ClCompile>
+    <ClCompile Include="中介者模式MediatorPattern.cpp">
+      <Filter>源文件\行为型模式</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

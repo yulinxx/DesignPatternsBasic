@@ -147,9 +147,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="中介者模式MediatorPattern.cpp" />
     <ClCompile Include="享元模式FlyweightPattern.cpp" />
+    <ClCompile Include="代理模式ProxyPattern.cpp" />
+    <ClCompile Include="代理模式2ProxyPattern.cpp" />
     <ClCompile Include="单例模式SingletonPattern.cpp" />
     <ClCompile Include="原型模式PrototypePattern.cpp" />
+    <ClCompile Include="命令模式Command Pattern.cpp" />
     <ClCompile Include="外观模式FacadePattern.cpp" />
     <ClCompile Include="工厂方法模式FactoryMethodPattern.cpp" />
     <ClCompile Include="建造者模式BuilderPattern.cpp" />
