@@ -75,10 +75,19 @@
     <ClCompile Include="代理模式2ProxyPattern.cpp">
       <Filter>源文件\结构型模式</Filter>
     </ClCompile>
-    <ClCompile Include="命令模式Command Pattern.cpp">
+    <ClCompile Include="中介者模式MediatorPattern.cpp">
       <Filter>源文件\行为型模式</Filter>
     </ClCompile>
-    <ClCompile Include="中介者模式MediatorPattern.cpp">
+    <ClCompile Include="状态模式StatePattern.cpp">
+      <Filter>源文件\行为型模式</Filter>
+    </ClCompile>
+    <ClCompile Include="观察者模式ObserverPattern.cpp">
+      <Filter>源文件\行为型模式</Filter>
+    </ClCompile>
+    <ClCompile Include="命令模式CommandPattern.cpp">
+      <Filter>源文件\行为型模式</Filter>
+    </ClCompile>
+    <ClCompile Include="策略模式StrategyPattern.cpp">
       <Filter>源文件\行为型模式</Filter>
     </ClCompile>
   </ItemGroup>
