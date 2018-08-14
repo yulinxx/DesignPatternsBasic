@@ -2,29 +2,32 @@
 using namespace std;
 
 class War;
+
 class State
 {
 public:
-	virtual void Prophase() {}
-	virtual void Metaphase() {}
-	virtual void Anaphase() {}
-	virtual void End() {}
-	virtual void CurrentState(War *war) {}
+	virtual void Prophase() {}	// 前期
+	virtual void Metaphase() {}	// 中期
+	virtual void Anaphase() {}	// 后期
+	virtual void End() {}			// 结束
+	virtual void CurrentState(War *war) {} // 当前状态
 };
 
 // 战争
 class War
 {
 private:
-	State *m_state;  //目前状态
-	int m_days;      //战争持续时间
+	State *m_pState;  //目前状态
+	int m_nDays;      //战争持续时间
+
 public:
-	War(State *state) : m_state(state), m_days(0) {}
-	~War() { delete m_state; }
-	int GetDays() { return m_days; }
-	void SetDays(int days) { m_days = days; }
-	void SetState(State *state) { delete m_state; m_state = state; }
-	void GetState() { m_state->CurrentState(this); }
+	War(State *state) : m_pState(state), m_nDays(0) {}
+	~War() { delete m_pState; }
+
+	int GetDays() { return m_nDays; }
+	void SetDays(int days) { m_nDays = days; }
+	void SetState(State *state) { delete m_pState; m_pState = state; }
+	void GetState() { m_pState->CurrentState(this); }
 };
 
 
@@ -47,7 +50,7 @@ class AnaphaseState : public State
 public:
 	void Anaphase(War *war) //后期的具体行为
 	{
-		if (war->GetDays() < 30)
+		if (war->GetDays() < 30) 
 			cout << "第" << war->GetDays() << "天：战争后期，双方拼死一搏" << endl;
 		else
 		{
