@@ -50,7 +50,7 @@ public:
 
 int main()
 {
-	CacheA cache(new LRU_ReplaceAlgorithm()); //暴露了算法的定义
+	CacheA cache(new LRU_ReplaceAlgorithm()); // 暴露了算法的定义
 	cache.Replace();
 	return 0;
 }

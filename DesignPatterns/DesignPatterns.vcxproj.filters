@@ -93,5 +93,8 @@
     <ClCompile Include="职责链模式ChainofResponsibilityPattern.cpp">
       <Filter>源文件\行为型模式</Filter>
     </ClCompile>
+    <ClCompile Include="备忘录模式MementoPattern.cpp">
+      <Filter>源文件\行为型模式</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

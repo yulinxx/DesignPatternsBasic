@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+
 class Singleton
 {
 public:
@@ -15,19 +16,8 @@ private:
 
 Singleton* Singleton::singleton = NULL;
 
-Singleton* Singleton::GetInstance(const char* name)
-{
-	if (singleton == NULL)
-	{
-		if (strcmp(name, "SingletonA") == 0)
-			singleton = new SingletonA();
-		else if (strcmp(name, "SingletonB") == 0)
-			singleton = new SingletonB();
-		else
-			singleton = new Singleton();
-	}
-	return singleton;
-}
+class SingletonA;
+class SingletonB;
 
 
 
@@ -49,6 +39,21 @@ public:
 private:  //为保护属性，这样外界无法通过构造函数进行实例化
 	SingletonB() {}
 };
+
+
+Singleton* Singleton::GetInstance(const char* name)
+{
+	if (singleton == NULL)
+	{
+		if (strcmp(name, "SingletonA") == 0)
+			singleton = new SingletonA();
+		else if (strcmp(name, "SingletonB") == 0)
+			singleton = new SingletonB();
+		else
+			singleton = new Singleton();
+	}
+	return singleton;
+}
 
 
 

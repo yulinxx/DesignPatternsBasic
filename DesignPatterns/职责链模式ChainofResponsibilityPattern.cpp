@@ -24,7 +24,8 @@ public:
 	{
 		if (num < 500) //经理职权之内
 		{
-			cout << "经理" << m_name << "批准" << name << "加薪" << num << "元" << endl << endl;
+			cout << "经理" << m_name << "批准" << name 
+				<< "加薪" << num << "元" << endl << endl;
 		}
 		else
 		{
@@ -43,7 +44,8 @@ public:
 	{
 		if (num < 1000) //总监职权之内
 		{
-			cout << "总监" << m_name << "批准" << name << "加薪" << num << "元" << endl << endl;
+			cout << "总监" << m_name << "批准" << name 
+				<< "加薪" << num << "元" << endl << endl;
 		}
 		else
 		{
@@ -60,7 +62,8 @@ public:
 	GeneralManager(Manager *manager, string name) :Manager(manager, name) {}
 	void DealWithRequest(string name, int num)  //总经理可以处理所有请求
 	{
-		cout << "总经理" << m_name << "批准" << name << "加薪" << num << "元" << endl << endl;
+		cout << "总经理" << m_name << "批准" << name 
+			<< "加薪" << num << "元" << endl << endl;
 	}
 };
 
