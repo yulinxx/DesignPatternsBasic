@@ -96,5 +96,8 @@
     <ClCompile Include="备忘录模式MementoPattern.cpp">
       <Filter>源文件\行为型模式</Filter>
     </ClCompile>
+    <ClCompile Include="命令模式2CommandPattern.cpp">
+      <Filter>源文件\行为型模式</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

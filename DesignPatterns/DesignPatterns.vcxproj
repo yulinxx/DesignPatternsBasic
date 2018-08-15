@@ -153,6 +153,7 @@
     <ClCompile Include="代理模式2ProxyPattern.cpp" />
     <ClCompile Include="单例模式SingletonPattern.cpp" />
     <ClCompile Include="原型模式PrototypePattern.cpp" />
+    <ClCompile Include="命令模式2CommandPattern.cpp" />
     <ClCompile Include="命令模式CommandPattern.cpp" />
     <ClCompile Include="备忘录模式MementoPattern.cpp" />
     <ClCompile Include="外观模式FacadePattern.cpp" />
