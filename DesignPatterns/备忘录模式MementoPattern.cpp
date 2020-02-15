@@ -28,9 +28,9 @@ public:
 class GameRole
 {
 private:
-	int m_vitality;
-	int m_attack;
-	int m_defense;
+	int m_vitality; //生命值
+	int m_attack;   //进攻值
+	int m_defense;  //防守值
 public:
 	GameRole() : m_vitality(100), m_attack(100), m_defense(100) {}
 
@@ -56,10 +56,10 @@ public:
 };
 
 //保存的进度库
-class Caretake
+class CareTake
 {
 public:
-	Caretake() {}
+	CareTake() {}
 
 	void Save(Memento menento) { m_vecMemento.push_back(menento); }
 
@@ -73,7 +73,7 @@ private:
 //测试案例
 int main()
 {
-	Caretake caretake;
+	CareTake caretake;
 	GameRole role;
 
 	role.Show();   //初始值

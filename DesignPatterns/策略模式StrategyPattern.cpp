@@ -22,6 +22,7 @@ class FIFO_ReplaceAlgorithm : public ReplaceAlgorithm
 public:
 	void Replace() { cout << "First in First out replace algorithm" << endl; }
 };
+
 class Random_ReplaceAlgorithm : public ReplaceAlgorithm
 {
 public:

@@ -71,7 +71,7 @@ public:
 
 int main()
 {
-	Manager *general = new GeneralManager(NULL, "A"); //设置上级，总经理没有上级
+	Manager *general = new GeneralManager(nullptr, "A"); //设置上级，总经理没有上级
 	Manager *majordomo = new Majordomo(general, "B"); //设置上级
 	Manager *common = new CommonManager(majordomo, "C"); //设置上级
 
