@@ -6,19 +6,19 @@ class War;
 class State
 {
 public:
-	virtual void Prophase() {}	// Ç°ÆÚ
-	virtual void Metaphase() {}	// ÖĞÆÚ
-	virtual void Anaphase() {}	// ºóÆÚ
-	virtual void End() {}			// ½áÊø
-	virtual void CurrentState(War *war) {} // µ±Ç°×´Ì¬
+	virtual void Prophase() {}	// å‰æœŸ
+	virtual void Metaphase() {}	// ä¸­æœŸ
+	virtual void Anaphase() {}	// åæœŸ
+	virtual void End() {}			// ç»“æŸ
+	virtual void CurrentState(War *war) {} // å½“å‰çŠ¶æ€
 };
 
-// Õ½Õù
+// æˆ˜äº‰
 class War
 {
 private:
-	State *m_pState;  //Ä¿Ç°×´Ì¬
-	int m_nDays;      //Õ½Õù³ÖĞøÊ±¼ä
+	State *m_pState;  //ç›®å‰çŠ¶æ€
+	int m_nDays;      //æˆ˜äº‰æŒç»­æ—¶é—´
 
 public:
 	War(State *state) : m_pState(state), m_nDays(0) {}
@@ -31,27 +31,27 @@ public:
 };
 
 
-// ¸ø³ö¾ßÌåµÄ×´Ì¬Àà£º
+// ç»™å‡ºå…·ä½“çš„çŠ¶æ€ç±»ï¼š
 
-// Õ½Õù½áÊø
+// æˆ˜äº‰ç»“æŸ
 class EndState : public State
 {
 public:
-	void End(War *war) //½áÊø½×¶ÎµÄ¾ßÌåĞĞÎª
+	void End(War *war) //ç»“æŸé˜¶æ®µçš„å…·ä½“è¡Œä¸º
 	{
-		cout << "Õ½Õù½áÊø" << endl;
+		cout << "æˆ˜äº‰ç»“æŸ" << endl;
 	}
 	void CurrentState(War *war) { End(war); }
 };
 
-// ºóÆÚ
+// åæœŸ
 class AnaphaseState : public State
 {
 public:
-	void Anaphase(War *war) //ºóÆÚµÄ¾ßÌåĞĞÎª
+	void Anaphase(War *war) //åæœŸçš„å…·ä½“è¡Œä¸º
 	{
 		if (war->GetDays() < 30) 
-			cout << "µÚ" << war->GetDays() << "Ìì£ºÕ½ÕùºóÆÚ£¬Ë«·½Æ´ËÀÒ»²«" << endl;
+			cout << "ç¬¬" << war->GetDays() << "å¤©ï¼šæˆ˜äº‰åæœŸï¼ŒåŒæ–¹æ‹¼æ­»ä¸€æ" << endl;
 		else
 		{
 			war->SetState(new EndState());
@@ -61,15 +61,15 @@ public:
 	void CurrentState(War *war) { Anaphase(war); }
 };
 
-// ÖĞÆÚ
+// ä¸­æœŸ
 class MetaphaseState : public State
 {
 public:
-	void Metaphase(War *war) //ÖĞÆÚµÄ¾ßÌåĞĞÎª
+	void Metaphase(War *war) //ä¸­æœŸçš„å…·ä½“è¡Œä¸º
 	{
 		if (war->GetDays() < 20)
-			cout << "µÚ" << war->GetDays() << 
-					"Ìì£ºÕ½ÕùÖĞÆÚ£¬½øÈëÏà³Ö½×¶Î£¬Ë«·¢¸÷ÓĞËğºÄ" << endl;
+			cout << "ç¬¬" << war->GetDays() << 
+					"å¤©ï¼šæˆ˜äº‰ä¸­æœŸï¼Œè¿›å…¥ç›¸æŒé˜¶æ®µï¼ŒåŒå‘å„æœ‰æŸè€—" << endl;
 		else
 		{
 			war->SetState(new AnaphaseState());
@@ -79,15 +79,15 @@ public:
 	void CurrentState(War *war) { Metaphase(war); }
 };
 
-// Ç°ÆÚ
+// å‰æœŸ
 class ProphaseState : public State
 {
 public:
-	void Prophase(War *war)  //Ç°ÆÚµÄ¾ßÌåĞĞÎª
+	void Prophase(War *war)  //å‰æœŸçš„å…·ä½“è¡Œä¸º
 	{
 		if (war->GetDays() < 10)
-			cout << "µÚ" << war->GetDays() <<
-				"Ìì£ºÕ½Õù³õÆÚ£¬Ë«·½ÄãÀ´ÎÒÍù£¬»¥ÏàÊÔÌ½¶Ô·½" << endl;
+			cout << "ç¬¬" << war->GetDays() <<
+				"å¤©ï¼šæˆ˜äº‰åˆæœŸï¼ŒåŒæ–¹ä½ æ¥æˆ‘å¾€ï¼Œäº’ç›¸è¯•æ¢å¯¹æ–¹" << endl;
 		else
 		{
 			war->SetState(new MetaphaseState());
@@ -98,7 +98,7 @@ public:
 };
 
 
-// ²âÊÔ°¸Àı
+// æµ‹è¯•æ¡ˆä¾‹
 int main()
 {
 	War *pWar = new War(new ProphaseState());

@@ -4,13 +4,13 @@
 
 using namespace std;
 
-//Ğè±£´æµÄĞÅÏ¢
+//éœ€ä¿å­˜çš„ä¿¡æ¯
 class Memento
 {
 public:
-	int m_vitality; //ÉúÃüÖµ
-	int m_attack;   //½ø¹¥Öµ
-	int m_defense;  //·ÀÊØÖµ
+	int m_vitality; //ç”Ÿå‘½å€¼
+	int m_attack;   //è¿›æ”»å€¼
+	int m_defense;  //é˜²å®ˆå€¼
 public:
 	Memento(int vitality, int attack, int defense) :
 		m_vitality(vitality), m_attack(attack), m_defense(defense) {}
@@ -24,24 +24,24 @@ public:
 	}
 };
 
-//ÓÎÏ·½ÇÉ«
+//æ¸¸æˆè§’è‰²
 class GameRole
 {
 private:
-	int m_vitality; //ÉúÃüÖµ
-	int m_attack;   //½ø¹¥Öµ
-	int m_defense;  //·ÀÊØÖµ
+	int m_vitality; //ç”Ÿå‘½å€¼
+	int m_attack;   //è¿›æ”»å€¼
+	int m_defense;  //é˜²å®ˆå€¼
 public:
 	GameRole() : m_vitality(100), m_attack(100), m_defense(100) {}
 
-	//±£´æ½ø¶È£¬Ö»ÓëMemento¶ÔÏó½»»¥£¬²¢²»Ç£Éæµ½Caretake
+	//ä¿å­˜è¿›åº¦ï¼Œåªä¸Mementoå¯¹è±¡äº¤äº’ï¼Œå¹¶ä¸ç‰µæ¶‰åˆ°Caretake
 	Memento Save() 
 	{
 		Memento memento(m_vitality, m_attack, m_defense);
 		return memento;
 	}
 
-	//ÔØÈë½ø¶È£¬Ö»ÓëMemento¶ÔÏó½»»¥£¬²¢²»Ç£Éæµ½Caretake
+	//è½½å…¥è¿›åº¦ï¼Œåªä¸Mementoå¯¹è±¡äº¤äº’ï¼Œå¹¶ä¸ç‰µæ¶‰åˆ°Caretake
 	void Load(Memento memento)  
 	{
 		m_vitality = memento.m_vitality;
@@ -55,7 +55,7 @@ public:
 	void Attack() { m_vitality -= 10; m_attack -= 10;  m_defense -= 10; }
 };
 
-//±£´æµÄ½ø¶È¿â
+//ä¿å­˜çš„è¿›åº¦åº“
 class CareTake
 {
 public:
@@ -70,18 +70,18 @@ private:
 };
 
 
-//²âÊÔ°¸Àı
+//æµ‹è¯•æ¡ˆä¾‹
 int main()
 {
 	CareTake caretake;
 	GameRole role;
 
-	role.Show();   //³õÊ¼Öµ
-	caretake.Save(role.Save()); //±£´æ×´Ì¬
+	role.Show();   //åˆå§‹å€¼
+	caretake.Save(role.Save()); //ä¿å­˜çŠ¶æ€
 
 	role.Attack();
-	role.Show();  //½ø¹¥ºó
-	role.Load(caretake.Load(0)); //ÔØÈë×´Ì¬ 
-	role.Show();  //»Ö¸´µ½×´Ì¬0
+	role.Show();  //è¿›æ”»å
+	role.Load(caretake.Load(0)); //è½½å…¥çŠ¶æ€ 
+	role.Show();  //æ¢å¤åˆ°çŠ¶æ€0
 	return 0;
 }

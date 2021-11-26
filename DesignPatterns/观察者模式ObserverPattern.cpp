@@ -1,8 +1,8 @@
 
 /*
-µ±²©Ö÷·¢±íĞÂÎÄÕÂµÄÊ±ºò£¬¼´²©Ö÷×´Ì¬·¢ÉúÁË¸Ä±ä£¬ÄÇĞ©¶©ÔÄµÄ¶ÁÕß¾Í»áÊÕµ½Í¨Öª£¬
-È»ºó½øĞĞÏàÓ¦µÄ¶¯×÷£¬±ÈÈçÈ¥¿´ÎÄÕÂ£¬»òÕßÊÕ²ØÆğÀ´¡£
-²©Ö÷Óë¶ÁÕßÖ®¼ä´æÔÚÖÖÒ»¶Ô¶àµÄÒÀÀµ¹ØÏµ¡£
+å½“åšä¸»å‘è¡¨æ–°æ–‡ç« çš„æ—¶å€™ï¼Œå³åšä¸»çŠ¶æ€å‘ç”Ÿäº†æ”¹å˜ï¼Œé‚£äº›è®¢é˜…çš„è¯»è€…å°±ä¼šæ”¶åˆ°é€šçŸ¥ï¼Œ
+ç„¶åè¿›è¡Œç›¸åº”çš„åŠ¨ä½œï¼Œæ¯”å¦‚å»çœ‹æ–‡ç« ï¼Œæˆ–è€…æ”¶è—èµ·æ¥ã€‚
+åšä¸»ä¸è¯»è€…ä¹‹é—´å­˜åœ¨ç§ä¸€å¯¹å¤šçš„ä¾èµ–å…³ç³»ã€‚
 */
 
 #include <iostream>
@@ -10,7 +10,7 @@
 #include <string>
 using namespace std;
 
-//¹Û²ìÕß
+//è§‚å¯Ÿè€…
 class Observer
 {
 public:
@@ -19,67 +19,67 @@ public:
 	virtual void Update() {}
 };
 
-//²©¿Í
+//åšå®¢
 class Blog
 {
 public:
 	Blog() {}
 	virtual ~Blog() {}
-	void Attach(Observer *observer) { m_observers.push_back(observer); }	 //Ìí¼Ó¹Û²ìÕß
-	void Remove(Observer *observer) { m_observers.remove(observer); }        //ÒÆ³ı¹Û²ìÕß
-	void Notify() //Í¨Öª¹Û²ìÕß
+	void Attach(Observer *observer) { m_observers.push_back(observer); }	 //æ·»åŠ è§‚å¯Ÿè€…
+	void Remove(Observer *observer) { m_observers.remove(observer); }        //ç§»é™¤è§‚å¯Ÿè€…
+	void Notify() //é€šçŸ¥è§‚å¯Ÿè€…
 	{
 		list<Observer*>::iterator iter = m_observers.begin();
 		for (; iter != m_observers.end(); iter++)
 			(*iter)->Update();
 	}
-	virtual void SetStatus(string s) { m_status = s; } //ÉèÖÃ×´Ì¬
-	virtual string GetStatus() { return m_status; }    //»ñµÃ×´Ì¬
+	virtual void SetStatus(string s) { m_status = s; } //è®¾ç½®çŠ¶æ€
+	virtual string GetStatus() { return m_status; }    //è·å¾—çŠ¶æ€
 
 private:
-	list<Observer* > m_observers; //¹Û²ìÕßÁ´±í
+	list<Observer* > m_observers; //è§‚å¯Ÿè€…é“¾è¡¨
 
 protected:
-	string m_status; //×´Ì¬
+	string m_status; //çŠ¶æ€
 };
 
 
 
-//¾ßÌå²©¿ÍÀà
+//å…·ä½“åšå®¢ç±»
 class BlogCSDN : public Blog
 {
 private:
-	string m_name; //²©Ö÷Ãû³Æ
+	string m_name; //åšä¸»åç§°
 public:
 	BlogCSDN(string name) : m_name(name) {}
 	~BlogCSDN() {}
-	void SetStatus(string s) { m_status = "CSDNÍ¨Öª : " + m_name + s; } //¾ßÌåÉèÖÃ×´Ì¬ĞÅÏ¢
+	void SetStatus(string s) { m_status = "CSDNé€šçŸ¥ : " + m_name + s; } //å…·ä½“è®¾ç½®çŠ¶æ€ä¿¡æ¯
 	string GetStatus() { return m_status; }
 };
 
-//¾ßÌå¹Û²ìÕß
+//å…·ä½“è§‚å¯Ÿè€…
 class ObserverBlog : public Observer
 {
 private:
-	string m_name;  //¹Û²ìÕßÃû³Æ
-	Blog *m_blog;   //¹Û²ìµÄ²©¿Í£¬µ±È»ÒÔÁ´±íĞÎÊ½¸üºÃ£¬¾Í¿ÉÒÔ¹Û²ì¶à¸ö²©¿Í
+	string m_name;  //è§‚å¯Ÿè€…åç§°
+	Blog *m_blog;   //è§‚å¯Ÿçš„åšå®¢ï¼Œå½“ç„¶ä»¥é“¾è¡¨å½¢å¼æ›´å¥½ï¼Œå°±å¯ä»¥è§‚å¯Ÿå¤šä¸ªåšå®¢
 public:
 	ObserverBlog(string name, Blog *blog) : m_name(name), m_blog(blog) {}
 	~ObserverBlog() {}
-	void Update()  //»ñµÃ¸üĞÂ×´Ì¬
+	void Update()  //è·å¾—æ›´æ–°çŠ¶æ€
 	{
 		string status = m_blog->GetStatus();
 		cout <<m_name << "-------" << status << endl;
 	}
 };
 
-// ¿Í»§µÄÊ¹ÓÃ·½Ê½£º
+// å®¢æˆ·çš„ä½¿ç”¨æ–¹å¼ï¼š
 int main()
 {
 	Blog *blog = new BlogCSDN("wuzhekai1985");
 	Observer *observer1 = new ObserverBlog("tutupig", blog);
 	blog->Attach(observer1);
-	blog->SetStatus("·¢±íÉè¼ÆÄ£Ê½C++ÊµÏÖ£¨15£©¡ª¡ª¹Û²ìÕßÄ£Ê½");
+	blog->SetStatus("å‘è¡¨è®¾è®¡æ¨¡å¼C++å®ç°ï¼ˆ15ï¼‰â€”â€”è§‚å¯Ÿè€…æ¨¡å¼");
 	blog->Notify();
 	delete blog; 
 	delete observer1;

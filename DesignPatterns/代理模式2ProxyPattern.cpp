@@ -1,23 +1,23 @@
-// ´úÀíÄ£Ê½(Proxy Pattern)
+// ä»£ç†æ¨¡å¼(Proxy Pattern)
 
 
 /*
-Ðé´úÀíµÄÇé¿ö£¬ÏÂÃæ¸øÁ½¸öÖÇÄÜÒýÓÃµÄÀý×Ó¡£
-Ò»¸öÊÇC++ÖÐµÄauto_ptr£¬ÁíÒ»¸öÊÇsmart_ptr¡£×Ô¼ºÊµÏÖÁËÒ»ÏÂ¡£
-¸ø³öauto_ptrµÄ´úÂëÊµÏÖ£º
+è™šä»£ç†çš„æƒ…å†µï¼Œä¸‹é¢ç»™ä¸¤ä¸ªæ™ºèƒ½å¼•ç”¨çš„ä¾‹å­ã€‚
+ä¸€ä¸ªæ˜¯C++ä¸­çš„auto_ptrï¼Œå¦ä¸€ä¸ªæ˜¯smart_ptrã€‚è‡ªå·±å®žçŽ°äº†ä¸€ä¸‹ã€‚
+ç»™å‡ºauto_ptrçš„ä»£ç å®žçŽ°ï¼š
 */
 
 
 /*
 https://blog.csdn.net/wuzhekai1985/article/details/6669219
-auto_ptr Àà¾ÍÊÇÒ»¸ö´úÀí£¬¿Í»§Ö»Ðè²Ù×÷auto_prtµÄ¶ÔÏó£¬¶ø²»ÐèÒªÓë±»´úÀíµÄÖ¸Õëpointee´ò½»µÀ¡£
-auto_ptr µÄºÃ´¦ÔÚÓÚÎª¶¯Ì¬·ÖÅäµÄ¶ÔÏóÌá¹©Òì³£°²È«¡£
-ÒòÎªËüÓÃÒ»¸ö¶ÔÏó´æ´¢ÐèÒª±»×Ô¶¯ÊÍ·ÅµÄ×ÊÔ´£¬È»ºóÒÀ¿¿¶ÔÏóµÄÎö¹¹º¯ÊýÀ´ÊÍ·Å×ÊÔ´¡£
-ÕâÑù¿Í»§¾Í²»ÐèÒª¹Ø×¢×ÊÔ´µÄÊÍ·Å£¬ÓÉauto_ptr ¶ÔÏó×Ô¶¯Íê³É¡£
-ÊµÏÖÖÐµÄÒ»¸ö¹Ø¼ü¾ÍÊÇÖØÔØÁË½âÒýÓÃ²Ù×÷·ûºÍ¼ýÍ·²Ù×÷·û£¬´Ó¶øÊ¹µÃauto_ptrµÄÊ¹ÓÃÓëÕæÊµÖ¸ÕëÀàËÆ¡£
+auto_ptr ç±»å°±æ˜¯ä¸€ä¸ªä»£ç†ï¼Œå®¢æˆ·åªéœ€æ“ä½œauto_prtçš„å¯¹è±¡ï¼Œè€Œä¸éœ€è¦ä¸Žè¢«ä»£ç†çš„æŒ‡é’ˆpointeeæ‰“äº¤é“ã€‚
+auto_ptr çš„å¥½å¤„åœ¨äºŽä¸ºåŠ¨æ€åˆ†é…çš„å¯¹è±¡æä¾›å¼‚å¸¸å®‰å…¨ã€‚
+å› ä¸ºå®ƒç”¨ä¸€ä¸ªå¯¹è±¡å­˜å‚¨éœ€è¦è¢«è‡ªåŠ¨é‡Šæ”¾çš„èµ„æºï¼Œç„¶åŽä¾é å¯¹è±¡çš„æžæž„å‡½æ•°æ¥é‡Šæ”¾èµ„æºã€‚
+è¿™æ ·å®¢æˆ·å°±ä¸éœ€è¦å…³æ³¨èµ„æºçš„é‡Šæ”¾ï¼Œç”±auto_ptr å¯¹è±¡è‡ªåŠ¨å®Œæˆã€‚
+å®žçŽ°ä¸­çš„ä¸€ä¸ªå…³é”®å°±æ˜¯é‡è½½äº†è§£å¼•ç”¨æ“ä½œç¬¦å’Œç®­å¤´æ“ä½œç¬¦ï¼Œä»Žè€Œä½¿å¾—auto_ptrçš„ä½¿ç”¨ä¸ŽçœŸå®žæŒ‡é’ˆç±»ä¼¼ã€‚
 
-ÎÒÃÇÖªµÀC++ÖÐÃ»ÓÐÀ¬»ø»ØÊÕ»úÖÆ£¬¿ÉÒÔÍ¨¹ýÖÇÄÜÖ¸ÕëÀ´ÃÖ²¹£¬
-ÏÂÃæ¸ø³öÖÇÄÜÖ¸ÕëµÄÒ»ÖÖÊµÏÖ£¬²ÉÓÃÁËÒýÓÃ¼ÆÊýµÄ²ßÂÔ¡£
+æˆ‘ä»¬çŸ¥é“C++ä¸­æ²¡æœ‰åžƒåœ¾å›žæ”¶æœºåˆ¶ï¼Œå¯ä»¥é€šè¿‡æ™ºèƒ½æŒ‡é’ˆæ¥å¼¥è¡¥ï¼Œ
+ä¸‹é¢ç»™å‡ºæ™ºèƒ½æŒ‡é’ˆçš„ä¸€ç§å®žçŽ°ï¼Œé‡‡ç”¨äº†å¼•ç”¨è®¡æ•°çš„ç­–ç•¥ã€‚
 */
 
 template<class T>
@@ -62,15 +62,15 @@ template <typename T>
 class smart_ptr
 {
 public:
-	smart_ptr(T *p = 0) : pointee(p), count(new size_t(1)) { }  //³õÊ¼µÄ¼ÆÊýÖµÎª1
+	smart_ptr(T *p = 0) : pointee(p), count(new size_t(1)) { }  //åˆå§‹çš„è®¡æ•°å€¼ä¸º1
 	smart_ptr(const smart_ptr &rhs) : 
-		pointee(rhs.pointee), count(rhs.count) { ++*count; } //¿½±´¹¹Ôìº¯Êý£¬¼ÆÊý¼Ó1
+		pointee(rhs.pointee), count(rhs.count) { ++*count; } //æ‹·è´æž„é€ å‡½æ•°ï¼Œè®¡æ•°åŠ 1
 
-	~smart_ptr() { decr_count(); }              //Îö¹¹£¬¼ÆÊý¼õ1£¬¼õµ½0Ê±½øÐÐÀ¬»ø»ØÊÕ£¬¼´ÊÍ·Å¿Õ¼ä
+	~smart_ptr() { decr_count(); }              //æžæž„ï¼Œè®¡æ•°å‡1ï¼Œå‡åˆ°0æ—¶è¿›è¡Œåžƒåœ¾å›žæ”¶ï¼Œå³é‡Šæ”¾ç©ºé—´
 
-	smart_ptr& operator= (const smart_ptr& rhs) //ÖØÔØ¸³Öµ²Ù×÷·û
+	smart_ptr& operator= (const smart_ptr& rhs) //é‡è½½èµ‹å€¼æ“ä½œç¬¦
 	{
-		//¸ø×ÔÉí¸³ÖµÒ²¶Ô£¬ÒòÎªÈç¹û×ÔÉí¸³Öµ£¬¼ÆÊýÆ÷ÏÈ¼õ1£¬ÔÙ¼Ó1£¬²¢Î´·¢Éú¸Ä±ä
+		//ç»™è‡ªèº«èµ‹å€¼ä¹Ÿå¯¹ï¼Œå› ä¸ºå¦‚æžœè‡ªèº«èµ‹å€¼ï¼Œè®¡æ•°å™¨å…ˆå‡1ï¼Œå†åŠ 1ï¼Œå¹¶æœªå‘ç”Ÿæ”¹å˜
 		++*count;
 		decr_count();
 		pointee = rhs.pointee;
@@ -78,18 +78,18 @@ public:
 		return *this;
 	}
 
-	//ÖØÔØ¼ýÍ·²Ù×÷·ûºÍ½âÒýÓÃ²Ù×÷·û£¬Î´Ìá¹©Ö¸ÕëµÄ¼ì²é
+	//é‡è½½ç®­å¤´æ“ä½œç¬¦å’Œè§£å¼•ç”¨æ“ä½œç¬¦ï¼Œæœªæä¾›æŒ‡é’ˆçš„æ£€æŸ¥
 	T *operator->() { return pointee; }
 	const T *operator->() const { return pointee; }
 	T &operator*() { return *pointee; }
 	const T &operator*() const { return *pointee; }
-	size_t get_refcount() { return *count; } //»ñµÃÒýÓÃ¼ÆÊýÆ÷Öµ
+	size_t get_refcount() { return *count; } //èŽ·å¾—å¼•ç”¨è®¡æ•°å™¨å€¼
 
 private:
-	T *pointee;       //Êµ¼ÊÖ¸Õë£¬±»´úÀí  
-	size_t *count;    //ÒýÓÃ¼ÆÊýÆ÷
+	T *pointee;       //å®žé™…æŒ‡é’ˆï¼Œè¢«ä»£ç†  
+	size_t *count;    //å¼•ç”¨è®¡æ•°å™¨
 
-	void decr_count() //¼ÆÊýÆ÷¼õ1
+	void decr_count() //è®¡æ•°å™¨å‡1
 	{
 		if (--*count == 0)
 		{

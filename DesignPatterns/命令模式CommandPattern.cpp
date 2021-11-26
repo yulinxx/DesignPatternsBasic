@@ -4,20 +4,20 @@
 using namespace std;
 
 /*
-ÎÒÃÇÈ¥²ÍÌü³Ô·¹£¬ÎÒÃÇÊÇÍ¨¹ý·þÎñÔ±À´µã²Ë£¬¾ßÌåÊÇË­À´×öÕâÐ©²ËºÍËûÃÇÊ²Ã´Ê±ºòÍê³ÉµÄÕâÐ©²Ë£¬ÆäÊµÎÒÃÇ¶¼²»ÖªµÀ¡£
-³éÏóÖ®£¬ÎÒÃÇÊÇ¡°²Ëµ¥ÇëÇóÕß¡±£¬³øÊ¦ÊÇ¡°²Ëµ¥ÊµÏÖÕß¡±£¬2ÕßÖ®¼äÊÇËÉñîºÏµÄ£¬
-ÎÒÃÇ¶ÔÕâÐ©²ËµÄÆäËûÒ»Ð©ÇëÇó±ÈÈç¡°³·Ïú£¬ÖØ×ö¡±µÈ£¬ÎÒÃÇÒ²²»ÖªµÀÊÇË­ÔÚ×ö¡£
-ÆäÊµÕâ¾ÍÊÇ Command Ä£Ê½¡£
-½«Ò»¸öÇëÇó·â×°ÎªÒ»¸ö¶ÔÏó£¬´Ó¶øÊ¹Äã¿ÉÓÃ²»Í¬µÄÇëÇó¶Ô¿Í»§½øÐÐ²ÎÊý»¯£»
-¶ÔÇëÇóÅÅ¶Ó»ò¼ÇÂ¼ÇëÇóÈÕÖ¾£¬ÒÔ¼°Ö§³Ö¿É³·ÏûµÄ²Ù×÷¡£[GOF ¡¶Éè¼ÆÄ£Ê½¡·]
+æˆ‘ä»¬åŽ»é¤åŽ…åƒé¥­ï¼Œæˆ‘ä»¬æ˜¯é€šè¿‡æœåŠ¡å‘˜æ¥ç‚¹èœï¼Œå…·ä½“æ˜¯è°æ¥åšè¿™äº›èœå’Œä»–ä»¬ä»€ä¹ˆæ—¶å€™å®Œæˆçš„è¿™äº›èœï¼Œå…¶å®žæˆ‘ä»¬éƒ½ä¸çŸ¥é“ã€‚
+æŠ½è±¡ä¹‹ï¼Œæˆ‘ä»¬æ˜¯â€œèœå•è¯·æ±‚è€…â€ï¼ŒåŽ¨å¸ˆæ˜¯â€œèœå•å®žçŽ°è€…â€ï¼Œ2è€…ä¹‹é—´æ˜¯æ¾è€¦åˆçš„ï¼Œ
+æˆ‘ä»¬å¯¹è¿™äº›èœçš„å…¶ä»–ä¸€äº›è¯·æ±‚æ¯”å¦‚â€œæ’¤é”€ï¼Œé‡åšâ€ç­‰ï¼Œæˆ‘ä»¬ä¹Ÿä¸çŸ¥é“æ˜¯è°åœ¨åšã€‚
+å…¶å®žè¿™å°±æ˜¯ Command æ¨¡å¼ã€‚
+å°†ä¸€ä¸ªè¯·æ±‚å°è£…ä¸ºä¸€ä¸ªå¯¹è±¡ï¼Œä»Žè€Œä½¿ä½ å¯ç”¨ä¸åŒçš„è¯·æ±‚å¯¹å®¢æˆ·è¿›è¡Œå‚æ•°åŒ–ï¼›
+å¯¹è¯·æ±‚æŽ’é˜Ÿæˆ–è®°å½•è¯·æ±‚æ—¥å¿—ï¼Œä»¥åŠæ”¯æŒå¯æ’¤æ¶ˆçš„æ“ä½œã€‚[GOF ã€Šè®¾è®¡æ¨¡å¼ã€‹]
 */
 
-// Barbecue ÉÕ¿¾¿¾Èâ¿¾ÈâÒ°²Í¿¾ÈâÑç
-// Mutton ÑòÈâ¸áÑòÈâäÌÑòÈâÑòÈâÀà
+// Barbecue çƒ§çƒ¤çƒ¤è‚‰çƒ¤è‚‰é‡Žé¤çƒ¤è‚‰å®´
+// Mutton ç¾Šè‚‰ç¾”ç¾Šè‚‰æ¶®ç¾Šè‚‰ç¾Šè‚‰ç±»
 
 #define SAFE_DELETE(p) if (p) { delete p; p = NULL; }
 
-/*¿¾ÈâÊ¦¸µÀà£¬Ö»¸ºÔð¿¾´®¹¤×÷*/
+/*çƒ¤è‚‰å¸ˆå‚…ç±»ï¼Œåªè´Ÿè´£çƒ¤ä¸²å·¥ä½œ*/
 class Barbecuer
 {
 public:
@@ -25,18 +25,18 @@ public:
 	void BakeChickenWing() { cout << "Bake ChickenWing" << endl; }
 };
 
-/*³éÏóÃüÁîÀà£ºÊÇÖ´ÐÐ¾ßÌå²Ù×÷µÄ½Ó¿Ú*/
+/*æŠ½è±¡å‘½ä»¤ç±»ï¼šæ˜¯æ‰§è¡Œå…·ä½“æ“ä½œçš„æŽ¥å£*/
 class Command
 {
 public:
 	Command() {}
 	Command(Barbecuer *receiver) :m_pReceiver(receiver) {}
-	virtual void ExecuteCommand() = 0; //Ö´ÐÐÃüÁî
+	virtual void ExecuteCommand() = 0; //æ‰§è¡Œå‘½ä»¤
 protected:
 	Barbecuer *m_pReceiver;
 };
 
-/*¾ßÌåÃüÁîÀà:¿¾ÑòÈâ´®ÃüÁî*/
+/*å…·ä½“å‘½ä»¤ç±»:çƒ¤ç¾Šè‚‰ä¸²å‘½ä»¤*/
 class BakeMuttonCommand :public Command
 {
 public:
@@ -44,7 +44,7 @@ public:
 	void ExecuteCommand() { m_pReceiver->BakeMutton(); }
 };
 
-/*¾ßÌåÃüÁîÀà:¿¾¼¦³á´®ÃüÁî*/
+/*å…·ä½“å‘½ä»¤ç±»:çƒ¤é¸¡ç¿…ä¸²å‘½ä»¤*/
 class BakeChickenWingCommand :public Command
 {
 public:
@@ -55,14 +55,14 @@ public:
 	}
 };
 
-/*·þÎñÔ±Àà*/
+/*æœåŠ¡å‘˜ç±»*/
 class Waiter
 {
 public:
 	void SetOrder(Command *command)
 	{
 		p_commandList.push_back(command);
-		cout << "Ôö¼Ó²Ëµ¥ÃüÁî" << endl;
+		cout << "å¢žåŠ èœå•å‘½ä»¤" << endl;
 	}
 
 	void Notify()
@@ -73,25 +73,25 @@ public:
 	}
 
 private:
-	vector<Command *>p_commandList; //ÕâÀïÏàµ±ÓÚÒ»¸öÃüÁî¶ÔÏó¶ÓÁÐ
+	vector<Command *>p_commandList; //è¿™é‡Œç›¸å½“äºŽä¸€ä¸ªå‘½ä»¤å¯¹è±¡é˜Ÿåˆ—
 };
 
 
 
 int main(int argc, char *argv[])
 {
-	Barbecuer *pCook = new Barbecuer();	// ¿¾ÈâÊ¦¸µ
+	Barbecuer *pCook = new Barbecuer();	// çƒ¤è‚‰å¸ˆå‚…
 
-	Command *pMutton = new BakeMuttonCommand(pCook); // ÑòÈâ
-	Command *pChickenWing = new BakeChickenWingCommand(pCook); // ¼¦³á
+	Command *pMutton = new BakeMuttonCommand(pCook); // ç¾Šè‚‰
+	Command *pChickenWing = new BakeChickenWingCommand(pCook); // é¸¡ç¿…
 	
 
-	//½«¶©µ¥¶ÔÏóÍÆËÍµ½·þÎñÔ±µÄÃüÁî¶ÓÁÐ
-	Waiter *pWaiter = new Waiter(); // ·þÎñÔ±
+	//å°†è®¢å•å¯¹è±¡æŽ¨é€åˆ°æœåŠ¡å‘˜çš„å‘½ä»¤é˜Ÿåˆ—
+	Waiter *pWaiter = new Waiter(); // æœåŠ¡å‘˜
 	pWaiter->SetOrder(pMutton);
 	pWaiter->SetOrder(pChickenWing);
 
-	//·þÎñÔ±Í¨Öª¿¾ÈâÊ¦¸µ¾ßÌå¶©µ¥
+	//æœåŠ¡å‘˜é€šçŸ¥çƒ¤è‚‰å¸ˆå‚…å…·ä½“è®¢å•
 	pWaiter->Notify();
 
 	SAFE_DELETE(pCook);

@@ -3,7 +3,7 @@
 
 using namespace std;
 // --------------------
-// Adaptee£ºÊÊÅäÕßÀà Ó¢Ê½²åÍ·
+// Adapteeï¼šé€‚é…è€…ç±» è‹±å¼æ’å¤´
 class CEnOutletAdaptee
 {
 public:
@@ -13,18 +13,18 @@ public:
 	}
 };
 // --------------------
-// Target£ºÄ¿±ê³éÏóÀà  ÖĞÊ½²å×ù 
+// Targetï¼šç›®æ ‡æŠ½è±¡ç±»  ä¸­å¼æ’åº§ 
 class CCnOutletTarget
 {
 public:
 	virtual ~CCnOutletTarget() {};
 	virtual void Cnplug()
 	{
-		cout << "ÖĞÊ½²å×ù£¡" << endl;
+		cout << "ä¸­å¼æ’åº§ï¼" << endl;
 	};
 };
 // --------------------
-// Adapter£ºÊÊÅäÆ÷Àà 
+// Adapterï¼šé€‚é…å™¨ç±» 
 class CCnOutletAdapter : public CCnOutletTarget
 {
 public:

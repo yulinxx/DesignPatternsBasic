@@ -1,4 +1,4 @@
-//�Ž�ģʽ(Bridge Pattern)
+//桥接模式(Bridge Pattern)
 
 #include <string>
 #include <iostream>

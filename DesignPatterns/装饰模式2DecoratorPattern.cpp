@@ -1,39 +1,39 @@
-// ×°ÊÎÄ£Ê½(Decorator Pattern)
+// è£…é¥°æ¨¡å¼(Decorator Pattern)
 
 /*******************************************
-* ×°ÊÎÕßÄ£Ê½  ÑİÊ¾   2014.5.12             *
+* è£…é¥°è€…æ¨¡å¼  æ¼”ç¤º   2014.5.12             *
 * by hnust_xiehonghao                      *
 ********************************************/
 
 #include <iostream>
 using namespace std;
 
-//Ì¹¿Ë³éÏóÀà component
+//å¦å…‹æŠ½è±¡ç±» component
 class Tank
 {
 public:
 
 	virtual void shot()
 	{
-		cout << "ÏòÎÒ¿ªÅÚ£¡" << endl;
+		cout << "å‘æˆ‘å¼€ç‚®ï¼" << endl;
 	}
 };
 
 //Concrete Component  
-class T50 :public Tank //¾ßÌåµÄÒ»ÖÖÌ¹¿Ë ĞÍºÅÎªT50 Ò²¿ÉÒÔÓĞºÜ¶àÆäËüÖÖÀàµÄÌ¹¿Ë
+class T50 :public Tank //å…·ä½“çš„ä¸€ç§å¦å…‹ å‹å·ä¸ºT50 ä¹Ÿå¯ä»¥æœ‰å¾ˆå¤šå…¶å®ƒç§ç±»çš„å¦å…‹
 {
 public:
 	void shot()
 	{
-		cout << "T50¿ªÅÚ" << endl;
+		cout << "T50å¼€ç‚®" << endl;
 	}
 };
 
 //Decorator   
-class Decorator : public Tank//´Ë´¦²»Ó¦ÈÏÎªÊÇis_a¹ØÏµ ¶øÓ¦¸ÃÈÏÎªÊÇlike_a
+class Decorator : public Tank//æ­¤å¤„ä¸åº”è®¤ä¸ºæ˜¯is_aå…³ç³» è€Œåº”è¯¥è®¤ä¸ºæ˜¯like_a
 {
-protected:  //ÕâÀï±ØĞëÊÇprotectÅ¶  ÒòÎªÆäËü¼Ì³ĞDecoratorµÄÀàÒªÓÃ
-	Tank *tank;//has_aµÄ¹ØÏµ
+protected:  //è¿™é‡Œå¿…é¡»æ˜¯protectå“¦  å› ä¸ºå…¶å®ƒç»§æ‰¿Decoratorçš„ç±»è¦ç”¨
+	Tank *tank;//has_açš„å…³ç³»
 
 public:
 	void decorator(Tank *_tank)
@@ -47,30 +47,30 @@ public:
 };
 
 
-//DecoratorA  ¼Ó´ó»ğÁ¦
+//DecoratorA  åŠ å¤§ç«åŠ›
 class BigShot :public  Decorator
 {
 
 public:
 	void shot()
 	{
-		//ÎªÁËËÀµÄ°²Ïê£¬ÎÒÏë±»´ó»ğÁ¦´òËÀ£¬ÁíÍâÇë¾²Òô
-		cout << "´ó»ğÁ¦×¼±¸Íê±Ï" << endl;
+		//ä¸ºäº†æ­»çš„å®‰è¯¦ï¼Œæˆ‘æƒ³è¢«å¤§ç«åŠ›æ‰“æ­»ï¼Œå¦å¤–è¯·é™éŸ³
+		cout << "å¤§ç«åŠ›å‡†å¤‡å®Œæ¯•" << endl;
 		tank->shot();
 
 	}
 };
 
 
-//DecoratorB     ÏûÒô
+//DecoratorB     æ¶ˆéŸ³
 class SilentShot :public Decorator
 {
 
 public:
 	void shot()
 	{
-		//Îª±£Ö¤ÊÇ±»ÅÚ´òËÀ ¶ø²»ÊÇÕğËÀ£¬Çë¾²Òô
-		cout << "ÏûÒôÍê±Ï" << endl;
+		//ä¸ºä¿è¯æ˜¯è¢«ç‚®æ‰“æ­» è€Œä¸æ˜¯éœ‡æ­»ï¼Œè¯·é™éŸ³
+		cout << "æ¶ˆéŸ³å®Œæ¯•" << endl;
 		tank->shot();
 	}
 };

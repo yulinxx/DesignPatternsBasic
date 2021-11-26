@@ -1,10 +1,10 @@
-// Ö°ÔğÁ´Ä£Ê½ChainofResponsibilityPattern.cpp
+// èŒè´£é“¾æ¨¡å¼ChainofResponsibilityPattern.cpp
 
 #include <string>
 #include <iostream>
 using namespace std;
 
-//³éÏó¹ÜÀíÕß
+//æŠ½è±¡ç®¡ç†è€…
 class Manager
 {
 protected:
@@ -15,67 +15,67 @@ public:
 	virtual void DealWithRequest(string name, int num) {}
 };
 
-//¾­Àí
+//ç»ç†
 class CommonManager : public Manager
 {
 public:
 	CommonManager(Manager *manager, string name) :Manager(manager, name) {}
 	void DealWithRequest(string name, int num)
 	{
-		if (num < 500) //¾­ÀíÖ°È¨Ö®ÄÚ
+		if (num < 500) //ç»ç†èŒæƒä¹‹å†…
 		{
-			cout << "¾­Àí" << m_name << "Åú×¼" << name 
-				<< "¼ÓĞ½" << num << "Ôª" << endl << endl;
+			cout << "ç»ç†" << m_name << "æ‰¹å‡†" << name 
+				<< "åŠ è–ª" << num << "å…ƒ" << endl << endl;
 		}
 		else
 		{
-			cout << "¾­Àí" << m_name << "ÎŞ·¨´¦Àí£¬½»ÓÉ×Ü¼à´¦Àí" << endl;
+			cout << "ç»ç†" << m_name << "æ— æ³•å¤„ç†ï¼Œäº¤ç”±æ€»ç›‘å¤„ç†" << endl;
 			m_manager->DealWithRequest(name, num);
 		}
 	}
 };
 
-//×Ü¼à
+//æ€»ç›‘
 class Majordomo : public Manager
 {
 public:
 	Majordomo(Manager *manager, string name) :Manager(manager, name) {}
 	void DealWithRequest(string name, int num)
 	{
-		if (num < 1000) //×Ü¼àÖ°È¨Ö®ÄÚ
+		if (num < 1000) //æ€»ç›‘èŒæƒä¹‹å†…
 		{
-			cout << "×Ü¼à" << m_name << "Åú×¼" << name 
-				<< "¼ÓĞ½" << num << "Ôª" << endl << endl;
+			cout << "æ€»ç›‘" << m_name << "æ‰¹å‡†" << name 
+				<< "åŠ è–ª" << num << "å…ƒ" << endl << endl;
 		}
 		else
 		{
-			cout << "×Ü¼à" << m_name << "ÎŞ·¨´¦Àí£¬½»ÓÉ×Ü¾­Àí´¦Àí" << endl;
+			cout << "æ€»ç›‘" << m_name << "æ— æ³•å¤„ç†ï¼Œäº¤ç”±æ€»ç»ç†å¤„ç†" << endl;
 			m_manager->DealWithRequest(name, num);
 		}
 	}
 };
 
-//×Ü¾­Àí
+//æ€»ç»ç†
 class GeneralManager : public Manager
 {
 public:
 	GeneralManager(Manager *manager, string name) :Manager(manager, name) {}
-	void DealWithRequest(string name, int num)  //×Ü¾­Àí¿ÉÒÔ´¦ÀíËùÓĞÇëÇó
+	void DealWithRequest(string name, int num)  //æ€»ç»ç†å¯ä»¥å¤„ç†æ‰€æœ‰è¯·æ±‚
 	{
-		cout << "×Ü¾­Àí" << m_name << "Åú×¼" << name 
-			<< "¼ÓĞ½" << num << "Ôª" << endl << endl;
+		cout << "æ€»ç»ç†" << m_name << "æ‰¹å‡†" << name 
+			<< "åŠ è–ª" << num << "å…ƒ" << endl << endl;
 	}
 };
 
-// ¿Í»§µ÷ÓÃ·½Ê½Îª£º
+// å®¢æˆ·è°ƒç”¨æ–¹å¼ä¸ºï¼š
 
 int main()
 {
-	Manager *general = new GeneralManager(nullptr, "A"); //ÉèÖÃÉÏ¼¶£¬×Ü¾­ÀíÃ»ÓĞÉÏ¼¶
-	Manager *majordomo = new Majordomo(general, "B"); //ÉèÖÃÉÏ¼¶
-	Manager *common = new CommonManager(majordomo, "C"); //ÉèÖÃÉÏ¼¶
+	Manager *general = new GeneralManager(nullptr, "A"); //è®¾ç½®ä¸Šçº§ï¼Œæ€»ç»ç†æ²¡æœ‰ä¸Šçº§
+	Manager *majordomo = new Majordomo(general, "B"); //è®¾ç½®ä¸Šçº§
+	Manager *common = new CommonManager(majordomo, "C"); //è®¾ç½®ä¸Šçº§
 
-	common->DealWithRequest("D", 300);   //Ô±¹¤DÒªÇó¼ÓĞ½
+	common->DealWithRequest("D", 300);   //å‘˜å·¥Dè¦æ±‚åŠ è–ª
 	common->DealWithRequest("E", 600);
 	common->DealWithRequest("F", 1000);
 	delete common; delete majordomo; delete general;

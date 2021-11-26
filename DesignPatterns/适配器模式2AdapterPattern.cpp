@@ -1,4 +1,4 @@
-// ÊÊÅäÆ÷Ä£Ê½(Adapter Pattern)
+// é€‚é…å™¨æ¨¡å¼(Adapter Pattern)
 
 #include <iostream>
 using namespace std;

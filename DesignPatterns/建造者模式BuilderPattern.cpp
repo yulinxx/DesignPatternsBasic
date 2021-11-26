@@ -12,7 +12,7 @@ public:
 	virtual void BuildRightLeg() {}
 };
 
-//¹¹ÔìÊİÈË
+//æ„é€ ç˜¦äºº
 class ThinBuilder : public Builder
 {
 public:
@@ -24,7 +24,7 @@ public:
 	void BuildRightLeg() { cout << "build thin rightleg" << endl; }
 };
 
-//¹¹ÔìÅÖÈË
+//æ„é€ èƒ–äºº
 class FatBuilder : public Builder
 {
 public:
@@ -36,7 +36,7 @@ public:
 	void BuildRightLeg() { cout << "build fat rightleg" << endl; }
 };
 
-//¹¹ÔìµÄÖ¸»Ó¹Ù
+//æ„é€ çš„æŒ‡æŒ¥å®˜
 class Director
 {
 private:
@@ -53,7 +53,7 @@ public:
 	}
 };
 
-// ¿Í»§µÄÊ¹ÓÃ·½Ê½;
+// å®¢æˆ·çš„ä½¿ç”¨æ–¹å¼;
 
 int main()
 {

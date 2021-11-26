@@ -7,10 +7,10 @@ class Singleton
 public:
 	static Singleton* GetInstance(const char* name);
 	virtual void Show() {}
-protected:  //±ØĞëÎª±£»¤£¬Èç¹ûÊÇË½ÓĞÊôĞÔ£¬×ÓÀàÎŞ·¨·ÃÎÊ¸¸ÀàµÄ¹¹Ôìº¯Êı
+protected:  //å¿…é¡»ä¸ºä¿æŠ¤ï¼Œå¦‚æœæ˜¯ç§æœ‰å±æ€§ï¼Œå­ç±»æ— æ³•è®¿é—®çˆ¶ç±»çš„æ„é€ å‡½æ•°
 	Singleton() {}
 private:
-	static Singleton *singleton; //Î¨Ò»ÊµÀıµÄÖ¸Õë
+	static Singleton *singleton; //å”¯ä¸€å®ä¾‹çš„æŒ‡é’ˆ
 };
 
 
@@ -23,20 +23,20 @@ class SingletonB;
 
 class SingletonA : public Singleton
 {
-	friend class Singleton; //±ØĞëÎªÓÑÔªÀà£¬·ñÔò¸¸ÀàÎŞ·¨·ÃÎÊ×ÓÀàµÄ¹¹Ôìº¯Êı
+	friend class Singleton; //å¿…é¡»ä¸ºå‹å…ƒç±»ï¼Œå¦åˆ™çˆ¶ç±»æ— æ³•è®¿é—®å­ç±»çš„æ„é€ å‡½æ•°
 public:
 	void Show() { cout << "SingletonA" << endl; }
-private:   //Îª±£»¤ÊôĞÔ£¬ÕâÑùÍâ½çÎŞ·¨Í¨¹ı¹¹Ôìº¯Êı½øĞĞÊµÀı»¯
+private:   //ä¸ºä¿æŠ¤å±æ€§ï¼Œè¿™æ ·å¤–ç•Œæ— æ³•é€šè¿‡æ„é€ å‡½æ•°è¿›è¡Œå®ä¾‹åŒ–
 	SingletonA() {}
 };
 
 
 class SingletonB : public Singleton
 {
-	friend class Singleton; //±ØĞëÎªÓÑÔªÀà£¬·ñÔò¸¸ÀàÎŞ·¨·ÃÎÊ×ÓÀàµÄ¹¹Ôìº¯Êı
+	friend class Singleton; //å¿…é¡»ä¸ºå‹å…ƒç±»ï¼Œå¦åˆ™çˆ¶ç±»æ— æ³•è®¿é—®å­ç±»çš„æ„é€ å‡½æ•°
 public:
 	void Show() { cout << "SingletonB" << endl; }
-private:  //Îª±£»¤ÊôĞÔ£¬ÕâÑùÍâ½çÎŞ·¨Í¨¹ı¹¹Ôìº¯Êı½øĞĞÊµÀı»¯
+private:  //ä¸ºä¿æŠ¤å±æ€§ï¼Œè¿™æ ·å¤–ç•Œæ— æ³•é€šè¿‡æ„é€ å‡½æ•°è¿›è¡Œå®ä¾‹åŒ–
 	SingletonB() {}
 };
 

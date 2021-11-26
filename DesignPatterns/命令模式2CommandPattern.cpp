@@ -2,14 +2,14 @@
 
 using namespace std;
 
-// ÃüÁî½Ó¿Ú
+// å‘½ä»¤æŽ¥å£
 class Command
 {
 public:
 	virtual void execute() = 0;
 };
 
-// µ÷ÓÃÕß
+// è°ƒç”¨è€…
 class Invoker
 {
 public:
@@ -25,7 +25,7 @@ private:
 	Command* command;
 };
 
-// ½ÓÊÕÕß
+// æŽ¥æ”¶è€…
 class Receiver
 {
 public:
@@ -38,7 +38,7 @@ public:
 	}
 };
 
-// ¾ßÌåµÄÃüÁî
+// å…·ä½“çš„å‘½ä»¤
 class ConcreteCommand : public Command
 {
 public:
@@ -54,19 +54,19 @@ private:
 	Receiver* receiver;
 };
 
-// ¿Í»§
+// å®¢æˆ·
 int main(int argc, char* argv[])
 {
-	// ¿Í»§Òª¸æÖªÃüÁî·¢¸øË­£¿
+	// å®¢æˆ·è¦å‘ŠçŸ¥å‘½ä»¤å‘ç»™è°ï¼Ÿ
 	Receiver* receiver = new Receiver();
 
-	// ¿Í»§Òª¸æÖªÃüÁîÊÇÊ²Ã´£¿
+	// å®¢æˆ·è¦å‘ŠçŸ¥å‘½ä»¤æ˜¯ä»€ä¹ˆï¼Ÿ
 	Command* command = new ConcreteCommand(receiver);
 
-	// ¿Í»§°ÑÃüÁî¸øµ÷ÓÃÕß
+	// å®¢æˆ·æŠŠå‘½ä»¤ç»™è°ƒç”¨è€…
 	Invoker* invoker = new Invoker(command);
 
-	// µ÷ÓÃÕßÍ¨¹ýCommand½Ó¿Ú°ÑÃüÁî½»¸ø½ÓÊÕÕßÖ´ÐÐ
+	// è°ƒç”¨è€…é€šè¿‡CommandæŽ¥å£æŠŠå‘½ä»¤äº¤ç»™æŽ¥æ”¶è€…æ‰§è¡Œ
 	invoker->action();
 
 	return 0;

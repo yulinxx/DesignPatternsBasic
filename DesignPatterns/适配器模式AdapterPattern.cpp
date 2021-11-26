@@ -1,10 +1,10 @@
-// ÊÊÅäÆ÷Ä£Ê½(Adapter Pattern)
+// é€‚é…å™¨æ¨¡å¼(Adapter Pattern)
 
 #include <iostream>
 #include <string>
 using namespace std;
 
-//Ë«¶Ë¶ÓÁĞ
+//åŒç«¯é˜Ÿåˆ—
 class Deque
 {
 public:
@@ -14,7 +14,7 @@ public:
 	void pop_front() { cout << "Deque pop_front" << endl; }
 };
 
-//Ë³ĞòÈİÆ÷
+//é¡ºåºå®¹å™¨
 class Sequence
 {
 public:
@@ -22,24 +22,24 @@ public:
 	virtual void pop() = 0;
 };
 
-//Õ»
+//æ ˆ
 class Stack : public Sequence
 {
 public:
 	void push(int x) { deque.push_back(x); }
 	void pop() { deque.pop_back(); }
 private:
-	Deque deque; //Ë«¶Ë¶ÓÁĞ
+	Deque deque; //åŒç«¯é˜Ÿåˆ—
 };
 
-//¶ÓÁĞ
+//é˜Ÿåˆ—
 class Queue : public Sequence
 {
 public:
 	void push(int x) { deque.push_back(x); }
 	void pop() { deque.pop_front(); }
 private:
-	Deque deque; //Ë«¶Ë¶ÓÁĞ
+	Deque deque; //åŒç«¯é˜Ÿåˆ—
 };
 
 ////////////////////////////////

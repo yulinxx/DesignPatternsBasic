@@ -1,11 +1,11 @@
-//ÇÅ½ÓÄ£Ê½(Bridge Pattern)
+//æ¡¥æ¥æ¨¡å¼(Bridge Pattern)
 
 
 #include <iostream>
 using namespace std;
 
 
-//²Ù×÷ÏµÍ³
+//æ“ä½œç³»ç»Ÿ
 class OS
 {
 public:
@@ -15,17 +15,17 @@ public:
 class WindowOS : public OS
 {
 public:
-	void InstallOS_Imp() { cout << "°²×°Window²Ù×÷ÏµÍ³" << endl; }
+	void InstallOS_Imp() { cout << "å®‰è£…Windowæ“ä½œç³»ç»Ÿ" << endl; }
 };
 
 class LinuxOS : public OS
 {
 public:
-	void InstallOS_Imp() { cout << "°²×°Linux²Ù×÷ÏµÍ³" << endl; }
+	void InstallOS_Imp() { cout << "å®‰è£…Linuxæ“ä½œç³»ç»Ÿ" << endl; }
 };
 
 
-//¼ÆËã»ú
+//è®¡ç®—æœº
 class Computer
 {
 public:
@@ -46,7 +46,7 @@ public:
 };
 
 
-// ¿Í»§Ê¹ÓÃ·½Ê½£º
+// å®¢æˆ·ä½¿ç”¨æ–¹å¼ï¼š
 int main()
 {
 	OS *pOSWnd = new WindowOS();

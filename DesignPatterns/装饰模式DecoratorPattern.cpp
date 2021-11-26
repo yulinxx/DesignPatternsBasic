@@ -1,11 +1,11 @@
-// ×°ÊÎÄ£Ê½(Decorator Pattern)
+// è£…é¥°æ¨¡å¼(Decorator Pattern)
 
 #include <string>
 #include <iostream>
 using namespace std;
 
 // --------------------------
-// ¹«¹²³éÏóÀà
+// å…¬å…±æŠ½è±¡ç±»
 class Phone
 {
 public:
@@ -15,20 +15,20 @@ public:
 };
 
 // --------------------------
-// ¾ßÌåµÄÊÖ»úÀàµÄ¶¨Òå£º
+// å…·ä½“çš„æ‰‹æœºç±»çš„å®šä¹‰ï¼š
 
-//¾ßÌåµÄÊÖ»úÀà
+//å…·ä½“çš„æ‰‹æœºç±»
 class iPhone : public Phone
 {
 private:
-	string m_name; //ÊÖ»úÃû³Æ
+	string m_name; //æ‰‹æœºåç§°
 public:
 	iPhone(string name) : m_name(name) {}
 	~iPhone() {}
-	void ShowDecorate() { cout << m_name << "µÄ×°ÊÎ" << endl; }
+	void ShowDecorate() { cout << m_name << "çš„è£…é¥°" << endl; }
 };
 
-// ¾ßÌåµÄÊÖ»úÀà
+// å…·ä½“çš„æ‰‹æœºç±»
 class NokiaPhone : public Phone
 {
 private:
@@ -36,49 +36,49 @@ private:
 public:
 	NokiaPhone(string name) : m_name(name) {}
 	~NokiaPhone() {}
-	void ShowDecorate() { cout << m_name << "µÄ×°ÊÎ" << endl; }
+	void ShowDecorate() { cout << m_name << "çš„è£…é¥°" << endl; }
 };
 
 // --------------------------
-// ×°ÊÎÀàµÄÊµÏÖ£º
+// è£…é¥°ç±»çš„å®ç°ï¼š
 
-//×°ÊÎÀà
+//è£…é¥°ç±»
 class DecoratorPhone : public Phone
 {
 private:
-	Phone *m_phone;  //Òª×°ÊÎµÄÊÖ»ú
+	Phone *m_phone;  //è¦è£…é¥°çš„æ‰‹æœº
 public:
 	DecoratorPhone(Phone *phone) : m_phone(phone) {}
 	virtual void ShowDecorate() { m_phone->ShowDecorate(); }
 };
 // --------------------------
-// ¾ßÌåµÄ×°ÊÎÀà
+// å…·ä½“çš„è£…é¥°ç±»
 class DecoratorPhoneA : public DecoratorPhone
 {
 public:
 	DecoratorPhoneA(Phone *phone) : DecoratorPhone(phone) {}
 	void ShowDecorate() { DecoratorPhone::ShowDecorate(); AddDecorate(); }
 private:
-	void AddDecorate() { cout << "Ôö¼Ó¹Ò¼ş" << endl; } // Ôö¼ÓµÄ×°ÊÎ
+	void AddDecorate() { cout << "å¢åŠ æŒ‚ä»¶" << endl; } // å¢åŠ çš„è£…é¥°
 };
 
-// ¾ßÌåµÄ×°ÊÎÀà
+// å…·ä½“çš„è£…é¥°ç±»
 class DecoratorPhoneB : public DecoratorPhone
 {
 public:
 	DecoratorPhoneB(Phone *phone) : DecoratorPhone(phone) {}
 	void ShowDecorate() { DecoratorPhone::ShowDecorate(); AddDecorate(); }
 private:
-	void AddDecorate() { cout << "ÆÁÄ»ÌùÄ¤" << endl; } // Ôö¼ÓµÄ×°ÊÎ
+	void AddDecorate() { cout << "å±å¹•è´´è†œ" << endl; } // å¢åŠ çš„è£…é¥°
 };
 
-// ¿Í»§Ê¹ÓÃ·½Ê½£º
+// å®¢æˆ·ä½¿ç”¨æ–¹å¼ï¼š
 
 int main()
 {
 	Phone *pPohone = new NokiaPhone("6300");
-	Phone *dpa = new DecoratorPhoneA(pPohone); // ×°ÊÎ£¬Ôö¼Ó¹Ò¼ş
-	Phone *dpb = new DecoratorPhoneB(dpa);    // ×°ÊÎ£¬ÆÁÄ»ÌùÄ¤
+	Phone *dpa = new DecoratorPhoneA(pPohone); // è£…é¥°ï¼Œå¢åŠ æŒ‚ä»¶
+	Phone *dpb = new DecoratorPhoneB(dpa);    // è£…é¥°ï¼Œå±å¹•è´´è†œ
 	dpb->ShowDecorate();
 
 	delete dpa;

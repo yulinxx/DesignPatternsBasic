@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-//¸¸Àà  
+//çˆ¶ç±»  
 class Resume
 {
 protected:
@@ -19,11 +19,11 @@ public:
 class ResumeA : public Resume
 {
 public:
-	ResumeA(const char *str);  //¹¹Ôìº¯Êý  
-	ResumeA(const ResumeA &r); //¿½±´¹¹Ôìº¯Êý  
-	~ResumeA();                //Îö¹¹º¯Êý  
-	ResumeA* Clone();          //¿ËÂ¡£¬¹Ø¼üËùÔÚ  
-	void Show();               //ÏÔÊ¾ÄÚÈÝ  
+	ResumeA(const char *str);  //æž„é€ å‡½æ•°  
+	ResumeA(const ResumeA &r); //æ‹·è´æž„é€ å‡½æ•°  
+	~ResumeA();                //æžæž„å‡½æ•°  
+	ResumeA* Clone();          //å…‹éš†ï¼Œå…³é”®æ‰€åœ¨  
+	void Show();               //æ˜¾ç¤ºå†…å®¹  
 };
 
 ResumeA::ResumeA(const char *str)
@@ -55,11 +55,11 @@ void ResumeA::Show() {
 class ResumeB : public Resume
 {
 public:
-	ResumeB(const char *str);  //¹¹Ôìº¯Êý  
-	ResumeB(const ResumeB &r); //¿½±´¹¹Ôìº¯Êý  
-	~ResumeB();                //Îö¹¹º¯Êý  
-	ResumeB* Clone();          //¿ËÂ¡£¬¹Ø¼üËùÔÚ  
-	void Show();               //ÏÔÊ¾ÄÚÈÝ  
+	ResumeB(const char *str);  //æž„é€ å‡½æ•°  
+	ResumeB(const ResumeB &r); //æ‹·è´æž„é€ å‡½æ•°  
+	~ResumeB();                //æžæž„å‡½æ•°  
+	ResumeB* Clone();          //å…‹éš†ï¼Œå…³é”®æ‰€åœ¨  
+	void Show();               //æ˜¾ç¤ºå†…å®¹  
 };
 
 ResumeB::ResumeB(const char *str)
@@ -98,11 +98,11 @@ int main(int argc, char* argv[])
 
 	r1->Show(); r2->Show();
 
-	//É¾³ýr1,r2  
+	//åˆ é™¤r1,r2  
 	delete r1; delete r2;
 	r1 = r2 = NULL;
 
-	//Éî¿½±´ËùÒÔ¶Ôr3,r4ÎÞÓ°Ïì  
+	//æ·±æ‹·è´æ‰€ä»¥å¯¹r3,r4æ— å½±å“  
 	r3->Show(); r4->Show();
 	delete r3; delete r4;
 	r3 = r4 = NULL;

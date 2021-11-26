@@ -4,54 +4,54 @@ using namespace std;
 
 class Mediator;
 
-// ³éÏóÈË
+// æŠ½è±¡äºº
 class Person
 {
 protected:
-	Mediator *m_pMediator; //ÖĞ½é
+	Mediator *m_pMediator; //ä¸­ä»‹
 
 public:
-	virtual void SetMediator(Mediator *pMediator) {} // ÉèÖÃÖĞ½é
-	virtual void SendMessage(string message) {}    // ÏòÖĞ½é·¢ËÍĞÅÏ¢
-	virtual void GetMessage(string message) {}     // ´ÓÖĞ½é»ñÈ¡ĞÅÏ¢
+	virtual void SetMediator(Mediator *pMediator) {} // è®¾ç½®ä¸­ä»‹
+	virtual void SendMessage(string message) {}    // å‘ä¸­ä»‹å‘é€ä¿¡æ¯
+	virtual void GetMessage(string message) {}     // ä»ä¸­ä»‹è·å–ä¿¡æ¯
 };
 
 
-// ³éÏóÖĞ½é»ú¹¹
+// æŠ½è±¡ä¸­ä»‹æœºæ„
 class Mediator
 {
 public:
 	virtual void Send(string message, Person *person) {}
-	virtual void SetRenter(Person *A) {}  // ÉèÖÃÆäÖĞÒ»·½
+	virtual void SetRenter(Person *A) {}  // è®¾ç½®å…¶ä¸­ä¸€æ–¹
 	virtual void SetLandlord(Person *B) {}
 };
 
-// ×â·¿Õß
+// ç§Ÿæˆ¿è€…
 class Renter : public Person
 {
 public:
 	void SetMediator(Mediator *pMediator) { m_pMediator = pMediator; }
 
 	void SendMessage(string message) { m_pMediator->Send(message, this); }
-	void GetMessage(string message) { cout << "×â·¿ÕßÊÕµ½ĞÅÏ¢" << message; }
+	void GetMessage(string message) { cout << "ç§Ÿæˆ¿è€…æ”¶åˆ°ä¿¡æ¯" << message; }
 };
 
-// ·¿¶«
+// æˆ¿ä¸œ
 class Landlord : public Person
 {
 public:
 	void SetMediator(Mediator *pMediator) { m_pMediator = pMediator; }
 	void SendMessage(string message) { m_pMediator->Send(message, this); }
-	void GetMessage(string message) { cout << "·¿¶«ÊÕµ½ĞÅÏ¢£º" << message; }
+	void GetMessage(string message) { cout << "æˆ¿ä¸œæ”¶åˆ°ä¿¡æ¯ï¼š" << message; }
 };
 
 
-// ·¿ÎİÖĞ½é
+// æˆ¿å±‹ä¸­ä»‹
 class HouseMediator : public Mediator
 {
 private:
-	Person *m_pRenter;	// ×â·¿Õß
-	Person *m_pLandlord;	// ·¿¶«
+	Person *m_pRenter;	// ç§Ÿæˆ¿è€…
+	Person *m_pLandlord;	// æˆ¿ä¸œ
 
 public:
 	HouseMediator() : m_pRenter(0), m_pLandlord(0) {}
@@ -60,21 +60,21 @@ public:
 
 	void Send(string message, Person *person)
 	{
-		if (person == m_pRenter)	// ×â·¿Õß¸ø·¿¶«·¢ĞÅÏ¢
-			m_pLandlord->GetMessage(message); // ·¿¶«ÊÕµ½ĞÅÏ¢
+		if (person == m_pRenter)	// ç§Ÿæˆ¿è€…ç»™æˆ¿ä¸œå‘ä¿¡æ¯
+			m_pLandlord->GetMessage(message); // æˆ¿ä¸œæ”¶åˆ°ä¿¡æ¯
 		else
 			m_pRenter->GetMessage(message);
 	}
 };
 
 
-// ¿Í»§Ê¹ÓÃ·½Ê½ÈçÏÂ£º
+// å®¢æˆ·ä½¿ç”¨æ–¹å¼å¦‚ä¸‹ï¼š
 
 int main()
 {
-	Mediator *pMediator = new HouseMediator();	// ·¿ÎİÖĞ½é
-	Person *pPerson1 = new Renter();    // ×â·¿Õß
-	Person *pPerson2 = new Landlord();  // ·¿¶«
+	Mediator *pMediator = new HouseMediator();	// æˆ¿å±‹ä¸­ä»‹
+	Person *pPerson1 = new Renter();    // ç§Ÿæˆ¿è€…
+	Person *pPerson2 = new Landlord();  // æˆ¿ä¸œ
 
 	pMediator->SetRenter(pPerson1);
 	pMediator->SetLandlord(pPerson2);
@@ -82,8 +82,8 @@ int main()
 	pPerson1->SetMediator(pMediator);
 	pPerson2->SetMediator(pMediator);
 
-	pPerson1->SendMessage("ÎÒÏëÔÚÄÏ¾©Â·¸½½ü×âÌ×·¿×Ó£¬¼Û¸ñ800ÔªÒ»¸öÔÂ\n");
-	pPerson2->SendMessage("³ö×â·¿×Ó£ºÄÏ¾©Â·100ºÅ£¬70Æ½Ã×£¬1000ÔªÒ»¸öÔÂ\n");
+	pPerson1->SendMessage("æˆ‘æƒ³åœ¨å—äº¬è·¯é™„è¿‘ç§Ÿå¥—æˆ¿å­ï¼Œä»·æ ¼800å…ƒä¸€ä¸ªæœˆ\n");
+	pPerson2->SendMessage("å‡ºç§Ÿæˆ¿å­ï¼šå—äº¬è·¯100å·ï¼Œ70å¹³ç±³ï¼Œ1000å…ƒä¸€ä¸ªæœˆ\n");
 
 	delete pPerson1; delete pPerson2; delete pMediator;
 

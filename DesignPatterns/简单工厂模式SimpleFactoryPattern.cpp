@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-// ¼òµ¥¹¤³§Ä£Ê½ Simple Factory Pattern
+// ç®€å•å·¥å‚æ¨¡å¼ Simple Factory Pattern
 enum CTYPE { COREA, COREB };
 
 class SingleCore
@@ -11,7 +11,7 @@ public:
 };
 
 
-//µ¥ºËA  
+//å•æ ¸A  
 class SingleCoreA : public SingleCore
 {
 public:
@@ -19,23 +19,23 @@ public:
 };
 
 
-//µ¥ºËB  
+//å•æ ¸B  
 class SingleCoreB : public SingleCore
 {
 public:
 	void Show() { cout << "SingleCore B" << endl; }
 };
 
-//Î¨Ò»µÄ¹¤³§£¬¿ÉÒÔÉú²úÁ½ÖÖĞÍºÅµÄ´¦ÀíÆ÷ºË£¬ÔÚÄÚ²¿ÅĞ¶Ï  
+//å”¯ä¸€çš„å·¥å‚ï¼Œå¯ä»¥ç”Ÿäº§ä¸¤ç§å‹å·çš„å¤„ç†å™¨æ ¸ï¼Œåœ¨å†…éƒ¨åˆ¤æ–­  
 class Factory
 {
 public:
 	SingleCore* CreateSingleCore(enum CTYPE ctype)
 	{
-		if (ctype == COREA) //¹¤³§ÄÚ²¿ÅĞ¶Ï  
-			return new SingleCoreA(); //Éú²úºËA  
+		if (ctype == COREA) //å·¥å‚å†…éƒ¨åˆ¤æ–­  
+			return new SingleCoreA(); //ç”Ÿäº§æ ¸A  
 		else if (ctype == COREB)
-			return new SingleCoreB(); //Éú²úºËB  
+			return new SingleCoreB(); //ç”Ÿäº§æ ¸B  
 		else
 			return NULL;
 	}

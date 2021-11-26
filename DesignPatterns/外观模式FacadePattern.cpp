@@ -1,4 +1,4 @@
-// Íâ¹ÛÄ£Ê½(Facade Pattern)
+// å¤–è§‚æ¨¡å¼(Facade Pattern)
 
 #include <iostream>
 using namespace std;
@@ -6,28 +6,28 @@ using namespace std;
 class Scanner
 {
 public:
-	void Scan() { cout << "´Ê·¨·ÖÎö" << endl; }
+	void Scan() { cout << "è¯æ³•åˆ†æ" << endl; }
 };
 
 class Parser
 {
 public:
-	void Parse() { cout << "Óï·¨·ÖÎö" << endl; }
+	void Parse() { cout << "è¯­æ³•åˆ†æ" << endl; }
 };
 
 class GenMidCode
 {
 public:
-	void GenCode() { cout << "²úÉúÖĞ¼ä´úÂë" << endl; }
+	void GenCode() { cout << "äº§ç”Ÿä¸­é—´ä»£ç " << endl; }
 };
 
 class GenMachineCode
 {
 public:
-	void GenCode() { cout << "²úÉú»úÆ÷Âë" << endl; }
+	void GenCode() { cout << "äº§ç”Ÿæœºå™¨ç " << endl; }
 };
 
-//¸ß²ã½Ó¿Ú
+//é«˜å±‚æ¥å£
 class Compiler
 {
 public:
@@ -45,7 +45,7 @@ public:
 };
 
 
-// ¿Í»§Ê¹ÓÃ·½Ê½£º
+// å®¢æˆ·ä½¿ç”¨æ–¹å¼ï¼š
 int main()
 {
 	Compiler compiler;

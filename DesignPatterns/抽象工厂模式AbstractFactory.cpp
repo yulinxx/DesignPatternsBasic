@@ -1,9 +1,9 @@
-// 抽象工厂模式 Abstract Factory
+// 鎶借薄宸ュ巶妯″紡 Abstract Factory
 
 #include <iostream>
 using namespace std;
 
-//单核  
+//鍗曟牳  
 class SingleCore
 {
 public:
@@ -22,7 +22,7 @@ public:
 	void Show() { cout << "Single Core B" << endl; }
 };
 
-//多核  
+//澶氭牳  
 class MultiCore
 {
 public:
@@ -41,7 +41,7 @@ public:
 	void Show() { cout << "Multi Core B" << endl; }
 };
 
-//工厂  
+//宸ュ巶  
 class CoreFactory
 {
 public:
@@ -49,7 +49,7 @@ public:
 	virtual MultiCore* CreateMultiCore() = 0;
 };
 
-//工厂A，专门用来生产A型号的处理器  
+//宸ュ巶A锛屼笓闂ㄧ敤鏉ョ敓浜鍨嬪彿鐨勫鐞嗗櫒  
 class FactoryA :public CoreFactory
 {
 public:
@@ -57,7 +57,7 @@ public:
 	MultiCore* CreateMultiCore() { return new MultiCoreA(); }
 };
 
-//工厂B，专门用来生产B型号的处理器  
+//宸ュ巶B锛屼笓闂ㄧ敤鏉ョ敓浜鍨嬪彿鐨勫鐞嗗櫒  
 class FactoryB : public CoreFactory
 {
 public:

@@ -1,21 +1,21 @@
 #include <iostream>
 using namespace std;
 
-// 工厂方法模式 Factory Method Pattern
+// 宸ュ巶鏂规硶妯″紡 Factory Method Pattern
 class SingleCore
 {
 public:
 	virtual void Show() = 0;
 };
 
-//单核A  
+//鍗曟牳A  
 class SingleCoreA : public SingleCore
 {
 public:
 	void Show() { cout << "SingleCore A" << endl; }
 };
 
-//单核B  
+//鍗曟牳B  
 class SingleCoreB : public SingleCore
 {
 public:
@@ -28,14 +28,14 @@ public:
 	virtual SingleCore* CreateSingleCore() = 0;
 };
 
-//生产A核的工厂  
+//鐢熶骇A鏍哥殑宸ュ巶  
 class FactoryA : public Factory
 {
 public:
 	SingleCoreA* CreateSingleCore() { return new SingleCoreA; }
 };
 
-//生产B核的工厂  
+//鐢熶骇B鏍哥殑宸ュ巶  
 class FactoryB : public Factory
 {
 public:
