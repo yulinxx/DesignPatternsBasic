@@ -33,7 +33,7 @@ public:
 	}
 };
 
-
+/////////////////////////////////////
 int main()
 {
 	// Create adapter and place a request

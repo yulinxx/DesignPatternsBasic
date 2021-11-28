@@ -42,7 +42,7 @@ private:
 	CEnOutletAdaptee* m_pEnOutletAdaptee;
 };
 
-// --------------------
+/////////////////////////////////////
 int main()
 {
 	CEnOutletAdaptee *pEnOutletAdaptee = new CEnOutletAdaptee;
