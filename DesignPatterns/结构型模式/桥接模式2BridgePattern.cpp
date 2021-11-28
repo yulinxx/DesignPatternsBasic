@@ -44,7 +44,7 @@ class Player {
 protected:
 	OperatinSystem *OS;
 public:
-	Player() : OS(NULL) {};
+	Player() : OS(nullptr) {};
 	virtual void setOS(OperatinSystem *os) { OS = os; }
 	virtual ~Player() {};
 

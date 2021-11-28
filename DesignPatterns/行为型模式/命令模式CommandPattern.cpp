@@ -15,7 +15,7 @@ using namespace std;
 // Barbecue 烧烤烤肉烤肉野餐烤肉宴
 // Mutton 羊肉羔羊肉涮羊肉羊肉类
 
-#define SAFE_DELETE(p) if (p) { delete p; p = NULL; }
+#define SAFE_DELETE(p) if (p) { delete p; p = nullptr; }
 
 /*烤肉师傅类，只负责烤串工作*/
 class Barbecuer

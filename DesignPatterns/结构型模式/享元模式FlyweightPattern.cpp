@@ -1,11 +1,22 @@
 // 享元模式(Flyweight Pattern)
 
+// 享元模式：运用共享技术有效地支持大量细粒度的对象。
+// 在有大量对象时，把其中共同的部分抽象出来，
+// 如果有相同的业务请求，直接返回内存中已有的对象，避免重新创建。
+
+// 以下情况可以考虑使用享元模式：
+// 系统中有大量的对象，这些对象消耗大量的内存，且这些对象的状态可以被外部化。
+// 对于享元模式，需要将对象的信息分为两个部分：内部状态和外部状态。
+// 内部状态是指被共享出来的信息，储存在享元对象内部且不随环境变化而改变；
+// 外部状态是不可以共享的，它随环境改变而改变，是由客户端控制的。
+
 /*
 举个围棋的例子，围棋的棋盘共有361格，即可放361个棋子。现在要实现一个围棋程序，该怎么办呢？
 
 首先要考虑的是棋子棋盘的实现，可以定义一个棋子的类，成员变量包括棋子的颜色、形状、位置等信息，
 另外再定义一个棋盘的类，成员变量中有个容器，用于存放棋子的对象。下面给出代码表示：
 棋子的定义，当然棋子的属性除了颜色和位置，还有其他的，这里略去。这两个属性足以说明问题。
+
 */
 
 
@@ -67,8 +78,8 @@ private:
 public:
 	PieceBoard(string black, string white) : m_blackName(black), m_whiteName(white)
 	{
-		m_blackPiece = NULL;
-		m_whitePiece = NULL;
+		m_blackPiece = nullptr;
+		m_whitePiece = nullptr;
 	}
 	~PieceBoard() { delete m_blackPiece; delete m_whitePiece; }
 
@@ -76,14 +87,14 @@ public:
 	{
 		if (color == BLACK)
 		{
-			if (m_blackPiece == NULL)  //只有一颗黑棋
+			if (m_blackPiece == nullptr)  //只有一颗黑棋
 				m_blackPiece = new BlackPiece(color);
 			cout << m_blackName << "在位置(" << pos.x << ',' << pos.y << ")";
 			m_blackPiece->Draw();
 		}
 		else
 		{
-			if (m_whitePiece == NULL)
+			if (m_whitePiece == nullptr)
 				m_whitePiece = new WhitePiece(color);
 			cout << m_whiteName << "在位置(" << pos.x << ',' << pos.y << ")";
 			m_whitePiece->Draw();
@@ -92,8 +103,8 @@ public:
 	}
 };
 
+/////////////////////////////////////
 // 客户的使用方式
-
 int main()
 {
 	PieceBoard pieceBoard("A", "B");
@@ -173,7 +184,7 @@ public:
 
 	void SetPiece(PieceColor color, PiecePos pos) //一步棋，在棋盘上放一颗棋子
 	{
-		Piece * piece = NULL;
+		Piece * piece = nullptr;
 		if (color == BLACK) //黑方下的
 		{
 			piece = new BlackPiece(color, pos); //获取一颗黑棋
@@ -196,9 +207,8 @@ public:
 	}
 };
 
-
+/////////////////////////////////////
 // 客户的使用方式
-
 int main()
 {
 	PieceBoard pieceBoard("A", "B");

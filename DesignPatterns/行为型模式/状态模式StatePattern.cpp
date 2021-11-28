@@ -97,7 +97,7 @@ public:
 	void CurrentState(War *war) { Prophase(war); }
 };
 
-
+/////////////////////////////////////
 // 测试案例
 int main()
 {

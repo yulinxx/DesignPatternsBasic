@@ -1,66 +1,117 @@
 // 抽象工厂模式 Abstract Factory
 
+// 抽象工厂模式 抽象工厂模式提供创建一系列相关或相互依赖对象的接口，而无需指定它们具体的类。
+// 当存在多个产品系列，而客户端只使用一个系列的产品时，可以考虑使用抽象工厂模式。
+// 缺点：当增加一个新系列的产品时，不仅需要现实具体的产品类，还需要增加一个新的创建接口，扩展相对困难。
+
 #include <iostream>
-using namespace std;
 
-//单核  
-class SingleCore
+// 键盘
+class KeyBoard
 {
 public:
-	virtual void Show() = 0;
+	virtual void show() = 0;
 };
-
-class SingleCoreA : public SingleCore
+// 微软的键盘
+class KeyBoardMicro : public KeyBoard
 {
 public:
-	void Show() { cout << "Single Core A" << endl; }
+	void show()
+	{
+		std::cout << "微软的键盘" << std::endl;
+	}
 };
-
-class SingleCoreB :public SingleCore
+// 联想的键盘
+class KeyBoardLenovo : public KeyBoard
 {
 public:
-	void Show() { cout << "Single Core B" << endl; }
+	void show()
+	{
+		std::cout << "联想的键盘" << std::endl;
+	}
 };
-
-//多核  
-class MultiCore
+// 鼠标
+class Mouse
 {
 public:
-	virtual void Show() = 0;
+	virtual void show() = 0;
 };
 
-class MultiCoreA : public MultiCore
+class MouseMicro : public Mouse
 {
 public:
-	void Show() { cout << "Multi Core A" << endl; }
+	void show()
+	{
+		std::cout << "微软的鼠标" << std::endl;
+	}
 };
 
-class MultiCoreB : public MultiCore
+class MouseLenovo : public Mouse
 {
 public:
-	void Show() { cout << "Multi Core B" << endl; }
+	void show()
+	{
+		std::cout << "联想的鼠标" << std::endl;
+	}
+};
+// 工厂
+class Factory
+{
+public:
+	virtual KeyBoard * createKeyBoard() = 0;
+	virtual Mouse * createMouse() = 0;
+};
+// 微软的工厂
+class FactoryMicro : public Factory
+{
+public:
+	KeyBoard * createKeyBoard()
+	{
+		return new KeyBoardMicro();
+	}
+	Mouse * createMouse()
+	{
+		return new MouseMicro();
+	}
+};
+// 联想的工厂
+class FactoryLenovo : public Factory
+{
+public:
+	KeyBoard * createKeyBoard()
+	{
+		return new KeyBoardLenovo();
+	}
+	Mouse * createMouse()
+	{
+		return new MouseLenovo();
+	}
 };
 
-//工厂  
-class CoreFactory
-{
-public:
-	virtual SingleCore* CreateSingleCore() = 0;
-	virtual MultiCore* CreateMultiCore() = 0;
-};
 
-//工厂A，专门用来生产A型号的处理器  
-class FactoryA :public CoreFactory
+///////////////////////////////////////////
+int main()
 {
-public:
-	SingleCore* CreateSingleCore() { return new SingleCoreA(); }
-	MultiCore* CreateMultiCore() { return new MultiCoreA(); }
-};
+	using namespace std;
+	// 抽象工厂模式
+	Factory * p = new FactoryMicro();
+	KeyBoard * pKeyBoard = p->createKeyBoard();
+	Mouse * pMouse = p->createMouse();
+	pKeyBoard->show();
+	pMouse->show();
+	delete pMouse;
+	delete pKeyBoard;
+	delete p;
 
-//工厂B，专门用来生产B型号的处理器  
-class FactoryB : public CoreFactory
-{
-public:
-	SingleCore* CreateSingleCore() { return new SingleCoreB(); }
-	MultiCore* CreateMultiCore() { return new MultiCoreB(); }
-};
+	p = new FactoryLenovo();
+	pKeyBoard = p->createKeyBoard();
+	pMouse = p->createMouse();
+	pKeyBoard->show();
+	pMouse->show();
+	delete pMouse;
+	delete pKeyBoard;
+	delete p;
+
+	getchar();
+	return 0;
+}
