@@ -4,7 +4,6 @@
 // 单例类必须提供一个可以访问唯一实例化对象的接口。
 // 单例模式分为懒汉和饿汉两种实现方式。
 
-
 // 懒汉单例模式
 // 懒汉：故名思义，不到万不得已就不会去实例化类，也就是说在第一次用到类实例的时候才会去实例化一个对象。
 // 在访问量较小，甚至可能不会去访问的情况下，采用懒汉实现，这是以时间换空间。
@@ -12,7 +11,6 @@
 // 饿汉单例模式
 // 饿汉：饿了肯定要饥不择食。所以在单例类定义的时候就进行实例化。
 // 在访问量比较大，或者可能访问的线程比较多时，采用饿汉实现，可以实现更好的性能。这是以空间换时间。
-
 
 // 保证一个类仅有一个实例，并提供一个访问它的全局访问点
 // 实现要点
@@ -134,11 +132,11 @@ private:
 	{
 	}
 	/*Singleton(const Singleton&);
-  	Singleton& operator=(const Singleton&);*/
+	Singleton& operator=(const Singleton&);*/
 	//这个为C++98，如果时在类内定义的友元函数还可以构建新的对象
-	SingletonC(const SingletonC &) = delete;	//所以C++13对这个问题进行了完善 提供了直接删除这个函数，
-												// 它定义在pubic里面也不能进行拷贝构造和赋值
-	SingletonC &operator=(const SingletonC &) = delete; //c++13里面提供了直接删除
+	SingletonC(const SingletonC &) = delete;			//所以C++13对这个问题进行了完善 提供了直接删除这个函数，
+														// 它定义在pubic里面也不能进行拷贝构造和赋值
+	SingletonC &operator=(const SingletonC &) = delete; // c++13里面提供了直接删除
 	static SingletonC intence;
 };
 

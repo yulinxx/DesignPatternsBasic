@@ -18,7 +18,7 @@ class KeyBoardMicro : public KeyBoard
 public:
 	void show()
 	{
-		std::cout << "微软的键盘" << std::endl;
+		std::cout << "Microso's Keyboard" << std::endl;
 	}
 };
 // 联想的键盘
@@ -27,7 +27,7 @@ class KeyBoardLenovo : public KeyBoard
 public:
 	void show()
 	{
-		std::cout << "联想的键盘" << std::endl;
+		std::cout << "Lenovo's Keyeybard" << std::endl;
 	}
 };
 // 鼠标
@@ -42,7 +42,7 @@ class MouseMicro : public Mouse
 public:
 	void show()
 	{
-		std::cout << "微软的鼠标" << std::endl;
+		std::cout << "Microso's Keyboard" << std::endl;
 	}
 };
 
@@ -51,7 +51,7 @@ class MouseLenovo : public Mouse
 public:
 	void show()
 	{
-		std::cout << "联想的鼠标" << std::endl;
+		std::cout << "Lenovo's Keyeybard" << std::endl;
 	}
 };
 // 工厂

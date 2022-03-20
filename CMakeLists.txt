@@ -1,45 +1,70 @@
 cmake_minimum_required(VERSION 3.0.0)
+
 project(DesignPatterns VERSION 0.1.0)
 
-
-file(GLOB CPP_FILE ./DesignPatterns/*.cpp)
-list(APPEND CPP_NAME ${CPP_FILE})
-
-#message(STATUS "-----------")
-#message(STATUS ${CPP_FILE})
-#message(STATUS "-----------")
-#message(STATUS ${CPP_NAME})
+message(STATUS "-----BEGIN------")
 
 
+set(DESIGNPATTERNS    
+    CreationalDesignPatterns    # 创建型模式
+    StructuralDesignPatterns    # 结构型模式
+    BehavioralDesignPatterns    # 行为型模式
+)
+
+
+message(STATUS "__CMAKE_CURRENT_SOURCE_DIR:" ${CMAKE_CURRENT_SOURCE_DIR})
+message(STATUS "__PROJECT_SOURCE_DIR " ${PROJECT_SOURCE_DIR})
+
+foreach(DES ${DESIGNPATTERNS})
+    message(STATUS "---${DES}")
+
+    file(GLOB SRC "${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}/${DES}/*.cpp")
+    message(STATUS "---${SRC}")
+
+    foreach(CPP ${SRC})
+        message(STATUS "__Create Exe: ${CPP}")
+
+        MESSAGE(${CPP})
+        STRING(REGEX REPLACE ".+/(.+)\\..*" "\\1" FILE_NAME ${CPP})
+        MESSAGE(${FILE_NAME})
+
+        add_executable(${DES}_${FILE_NAME} ${CPP})
+
+    endforeach(CPP)    
+
+endforeach(DES)
 
 
 
 
 
+# set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+# set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+# include(CPack)
 
 
-file(GLOB_RECURSE CPP_SRC_LIST *.cpp)
-foreach(v ${CPP_SRC_LIST})
-    string(REGEX MATCH "tests/.*" relative_path ${v})
-    #string(REGEX REPLACE "tests/" "" target_name ${relative_path})
-    #string(REGEX REPLACE ".cpp" "" target_name ${target_name})
 
-    #STRING(REGEX REPLACE ".+/(.+)\\..*" "\\1" FILE_NAME ${file_name}) 
-    #add_executable(my_test_${target_name} ${v})
+message(STATUS "-----END------")
 
 
-    #set(file_name "D:\\no.cpp")
-    STRING(REGEX REPLACE ".+/(.+)\\..*" "\\1" FILE_NAME ${v})
-    set(name ${FILE_NAME})
-    message(${FILE_NAME})
-    message(${v})
-    message("--------")
-    #add_executable(test_${FILE_NAME} ${v})
-endforeach()
+# set(创建型模式
+#     # 1.CreationalDesignPatterns
+#     1.1.SingletonPattern
+#     1.2.SimpleFactoryPattern
+#     1.3.FactoryMethodPattern
+#     1.4.AbstractFactory
+#     1.5.BuilderPattern
+#     1.6.PrototypePattern
+# )
 
-#add_executable(DesignPatterns ./DesignPatterns/备忘录模式MementoPattern.cpp)
-add_executable(DesignPatterns2 ./DesignPatterns/策略模式StrategyPattern.cpp)
 
-set(CPACK_PROJECT_NAME ${PROJECT_NAME})
-set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
-include(CPack)
+# set(结构型模式
+#     # 2.StructuralDesignPatterns
+#     2.1.ProxyPattern
+# )
+
+# set(行为型模式
+#     # 3.BehavioralDesignPatterns
+#     3.1.MementoPattern
+# )
+

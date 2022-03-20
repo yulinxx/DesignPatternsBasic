@@ -27,6 +27,7 @@ public:
     virtual void start() = 0;
     virtual void shutdown() = 0;
 };
+
 ​
 //子控件， 主机
 class Host : public Control
