@@ -16,13 +16,13 @@ message(STATUS "__CMAKE_CURRENT_SOURCE_DIR:" ${CMAKE_CURRENT_SOURCE_DIR})
 message(STATUS "__PROJECT_SOURCE_DIR " ${PROJECT_SOURCE_DIR})
 
 foreach(DES ${DESIGNPATTERNS})
-    message(STATUS "---${DES}")
+    message(STATUS "---Dir: ${DES}")
 
     file(GLOB SRC "${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}/${DES}/*.cpp")
-    message(STATUS "---${SRC}")
+    message(STATUS "---cpp: ${SRC}")
 
     foreach(CPP ${SRC})
-        message(STATUS "__Create Exe: ${CPP}")
+        message(STATUS "---Create Exe: ${CPP}")
 
         MESSAGE(${CPP})
         STRING(REGEX REPLACE ".+/(.+)\\..*" "\\1" FILE_NAME ${CPP})
