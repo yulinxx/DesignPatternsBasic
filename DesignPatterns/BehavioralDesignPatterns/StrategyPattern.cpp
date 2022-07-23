@@ -92,12 +92,12 @@ public:
 /////////////////////////////////////
 //相比方式一，这种方式用起来方便多了。其实这种方式将简单工厂模式与策略模式结合在一起，
 // 算法的定义使用了策略模式，而Cache的定义其实使用了简单工厂模式。
-int main()
-{
-	CacheB cache(LRU); //指定标签即可
-	cache.Replace();
-	return 0;
-}
+// int main()
+// {
+// 	CacheB cache(LRU); //指定标签即可
+// 	cache.Replace();
+// 	return 0;
+// }
 
 
 //上面两种方式，构造函数都需要形参。构造函数是否可以不用参数呢？下面给出第三种实现方式。
@@ -121,9 +121,9 @@ public:
 
 /////////////////////////////////////
 // 使用方式如下：
-int main()
-{
-	CacheC<Random_ReplaceAlgorithm> cache; //模板实参
-	cache.Replace();
-	return 0;
-}
+// int main()
+// {
+// 	CacheC<Random_ReplaceAlgorithm> cache; //模板实参
+// 	cache.Replace();
+// 	return 0;
+// }

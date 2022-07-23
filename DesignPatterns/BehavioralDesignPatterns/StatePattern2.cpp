@@ -2,7 +2,7 @@
  * @Author: xx xx@ubuntu.com
  * @Date: 2022-07-03 20:06:06
  * @LastEditors: xx xx@ubuntu.com
- * @LastEditTime: 2022-07-03 20:20:34
+ * @LastEditTime: 2022-07-23 22:32:05
  * @FilePath: /DesignPatternsBasic/DesignPatterns/BehavioralDesignPatterns/StatePattern2.cpp
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -21,10 +21,11 @@
 #include <string>
 
 class Context;
+
 class DPNetworkState
 {
 public:
-    virtual void doAction(Context &context) = 0;
+    virtual void doAction(Context* context) = 0;
     virtual std::string descriptionString() = 0;
 };
 
@@ -32,50 +33,36 @@ public:
 class DPNetworkStateWIFI : public DPNetworkState
 {
 public:
-    virtual void doAction(Context &context)
-    {
-        context.setNetworkState(this);
-    }
-    virtual std::string descriptionString()
-    {
-        return std::string("wifi");
-    }
+    virtual void doAction(Context* context) override;
+    virtual std::string descriptionString();
 };
+
 
 // 蜂窝
 class DPNetworkStateCellular : public DPNetworkState
 {
 public:
-    virtual void doAction(Context &context)
-    {
-        context.setNetworkState(this);
-    }
-    virtual std::string descriptionString()
-    {
-        return std::string("Cellular");
-    }
+    virtual void doAction(Context* context) override;
+    virtual std::string descriptionString();
 };
 
+
+    
 // 未知
 class DPNetworkStateUnknow : public DPNetworkState
 {
 public:
-    virtual void doAction(Context &context)
-    {
-        context.setNetworkState(this);
-    }
-    virtual std::string descriptionString()
-    {
-        return std::string("Unknow");
-    }
+    virtual void doAction(Context* context) override;
+    virtual std::string descriptionString();
 };
+
 
 // // 举例其中一个具体实现
 // std::string DPNetworkStateWIFI::descriptionString()
 // {
 //     return std::string("wifi");
 // }
-// void DPNetworkStateWIFI::doAction(Context &context)
+// void DPNetworkStateWIFI::doAction(Context* context) override
 // {
 
 // }
@@ -87,27 +74,64 @@ protected:
     DPNetworkState *pNetworkState;
 
 public:
-    void setNetworkState(DPNetworkState *networkState);
+    void setNetworkState(DPNetworkState *networkState)
+    {
+
+    }
     void printState()
     {
         pNetworkState->descriptionString();
     }
 };
 
+
+void DPNetworkStateWIFI::doAction(Context* context)
+{
+    context->setNetworkState(this);
+}
+std::string DPNetworkStateWIFI::descriptionString()
+{
+    return std::string("wifi");
+}
+
+
+
+
+void DPNetworkStateCellular::doAction(Context* context)
+{
+    context->setNetworkState(this);
+}
+std::string DPNetworkStateCellular::descriptionString()
+{
+    return std::string("Cellular");
+}
+
+
+
+void DPNetworkStateUnknow::doAction(Context* context)
+{
+    context->setNetworkState(this);
+}
+std::string DPNetworkStateUnknow::descriptionString()
+{
+    return std::string("Unknow");
+}
+
+
 int main()
 {
-    Context context;
+    Context* context = new Context();
     DPNetworkState *state = new DPNetworkStateWIFI();
     state->doAction(context);
-    context.printState();
+    context->printState();
 
     state = new DPNetworkStateCellular();
     state->doAction(context);
-    context.printState();
+    context->printState();
 
     state = new DPNetworkStateUnknow();
     state->doAction(context);
-    context.printState();
+    context->printState();
 
     return 0;
 }

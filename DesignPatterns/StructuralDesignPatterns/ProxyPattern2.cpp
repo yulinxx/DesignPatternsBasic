@@ -20,6 +20,8 @@ auto_ptr 的好处在于为动态分配的对象提供异常安全。
 下面给出智能指针的一种实现，采用了引用计数的策略。
 */
 
+#include <stddef.h>
+
 template<class T>
 class auto_ptr {
 public:
@@ -98,3 +100,9 @@ private:
 		}
 	}
 };
+
+
+int main()
+{
+	return 0;
+}

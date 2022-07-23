@@ -28,7 +28,6 @@ public:
     virtual void shutdown() = 0;
 };
 
-​
 //子控件， 主机
 class Host : public Control
 {
@@ -42,7 +41,6 @@ public:
         cout << "Host shutdown" << endl;
     }
 };
-​
 //子控件， 显示屏
 class LCDDisplay : public Control
 {
@@ -56,7 +54,6 @@ public:
         cout << "LCD Display shutdonw" << endl;
     }
 };
-​
 //子控件， 外部设备
 class Peripheral : public Control
 {
@@ -70,7 +67,6 @@ public:
         cout << "Peripheral shutdown" << endl;
     }
 };
-​
 class Computer
 {
 public:
@@ -93,16 +89,12 @@ private:
     LCDDisplay m_display;
     Peripheral   m_peripheral;
 };
-​
 /////////////////////////////////////
 int main()
 {
     Computer computer;
     computer.start();
-​
     //do something
-​
     computer.shutdown();
-​
     return 0;
 }

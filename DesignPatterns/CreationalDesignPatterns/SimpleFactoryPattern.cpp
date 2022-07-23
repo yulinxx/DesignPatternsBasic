@@ -1,3 +1,11 @@
+/*
+ * @Author: xx xx@ubuntu.com
+ * @Date: 2022-06-26 16:37:21
+ * @LastEditors: xx xx@ubuntu.com
+ * @LastEditTime: 2022-07-23 22:07:33
+ * @FilePath: /DesignPatternsBasic/DesignPatterns/CreationalDesignPatterns/SimpleFactoryPattern.cpp
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 // 简单工厂模式
 // 主要特点是需要在工厂类中做判断，从而创造相应的产品，当增加新产品时，需要修改工厂类。使用简单工厂模式，我们只需要知道具体的产品型号就可以创建一个产品。
 // 缺点：工厂类集中了所有产品类的创建逻辑，如果产品量较大，会使得工厂类变的非常臃肿。
@@ -53,3 +61,9 @@ public:
 			return nullptr;
 	}
 };
+
+
+int main()
+{
+	return 0;
+}

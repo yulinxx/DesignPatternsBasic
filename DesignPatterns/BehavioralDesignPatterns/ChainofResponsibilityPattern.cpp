@@ -1,3 +1,11 @@
+/*
+ * @Author: xx xx@ubuntu.com
+ * @Date: 2022-06-26 16:37:21
+ * @LastEditors: xx xx@ubuntu.com
+ * @LastEditTime: 2022-07-23 21:42:38
+ * @FilePath: /DesignPatternsBasic/DesignPatterns/BehavioralDesignPatterns/ChainofResponsibilityPattern.cpp
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 // 职责链模式ChainofResponsibilityPattern.cpp
 // 职责链模式：使多个对象都有机会处理请求，从而避免请求的发送者和接收者之前的耦合关系，
 // 将这些对象连成一条链，并沿着这条链传递请求，直到有一个对象处理它为止。
@@ -32,12 +40,12 @@ public:
 
 		if (num < 500) //经理职权之内
 		{
-			wcout << "经理" << m_name << "批准" << name 
+			cout << "经理" << m_name << "批准" << name 
 				<< "加薪" << num << "元" << endl << endl;
 		}
 		else
 		{
-			wcout << "经理" << m_name << "无法处理，交由总监处理" << endl;
+			cout << "经理" << m_name << "无法处理，交由总监处理" << endl;
 			m_manager->DealWithRequest(name, num);
 		}
 	}
