@@ -41,7 +41,7 @@ public:
 	void SetMediator(Mediator *pMediator) { m_pMediator = pMediator; }
 
 	void SendMessage(string message) { m_pMediator->Send(message, this); }
-	void GetMessage(string message) { cout << "租房者收到信息" << message; }
+	void GetMessage(string message) { cout << "Renter have get message:" << message; }
 };
 
 // 房东
@@ -50,7 +50,7 @@ class Landlord : public Person
 public:
 	void SetMediator(Mediator *pMediator) { m_pMediator = pMediator; }
 	void SendMessage(string message) { m_pMediator->Send(message, this); }
-	void GetMessage(string message) { cout << "房东收到信息：" << message; }
+	void GetMessage(string message) { cout << "Landlord have get message:" << message; }
 };
 
 

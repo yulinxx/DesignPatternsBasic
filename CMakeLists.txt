@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.0.0)
 
 project(DesignPatterns VERSION 0.1.0)
 
+
 message(STATUS "-----BEGIN------")
 
 
@@ -15,56 +16,24 @@ set(DESIGNPATTERNS
 message(STATUS "__CMAKE_CURRENT_SOURCE_DIR:" ${CMAKE_CURRENT_SOURCE_DIR})
 message(STATUS "__PROJECT_SOURCE_DIR " ${PROJECT_SOURCE_DIR})
 
-foreach(DES ${DESIGNPATTERNS})
-    message(STATUS "---${DES}")
+foreach(SUB_DIR ${DESIGNPATTERNS})
+    message(STATUS "---${SUB_DIR}")
 
-    file(GLOB SRC "${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}/${DES}/*.cpp")
-    message(STATUS "---${SRC}")
+    file(GLOB SRC "${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}/${SUB_DIR}/*.cpp")
+    message(STATUS "---all cpp: ${SRC}")
 
     foreach(CPP ${SRC})
         message(STATUS "__Create Exe: ${CPP}")
 
         MESSAGE(${CPP})
         STRING(REGEX REPLACE ".+/(.+)\\..*" "\\1" FILE_NAME ${CPP})
-        MESSAGE(${FILE_NAME})
+        MESSAGE(" --- FILE_NAME"  ${FILE_NAME})
 
-        add_executable(${DES}_${FILE_NAME} ${CPP})
+        add_executable(${SUB_DIR}_${FILE_NAME} ${CPP})
 
     endforeach(CPP)    
 
-endforeach(DES)
-
-
-
-
-
-# set(CPACK_PROJECT_NAME ${PROJECT_NAME})
-# set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
-# include(CPack)
-
+endforeach(SUB_DIR)
 
 
 message(STATUS "-----END------")
-
-
-# set(创建型模式
-#     # 1.CreationalDesignPatterns
-#     1.1.SingletonPattern
-#     1.2.SimpleFactoryPattern
-#     1.3.FactoryMethodPattern
-#     1.4.AbstractFactory
-#     1.5.BuilderPattern
-#     1.6.PrototypePattern
-# )
-
-
-# set(结构型模式
-#     # 2.StructuralDesignPatterns
-#     2.1.ProxyPattern
-# )
-
-# set(行为型模式
-#     # 3.BehavioralDesignPatterns
-#     3.1.MementoPattern
-# )
-

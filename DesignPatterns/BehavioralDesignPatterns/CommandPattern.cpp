@@ -32,6 +32,7 @@ public:
 	Command() {}
 	Command(Barbecuer *receiver) :m_pReceiver(receiver) {}
 	virtual void ExecuteCommand() = 0; //执行命令
+	
 protected:
 	Barbecuer *m_pReceiver;
 };

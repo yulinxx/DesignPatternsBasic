@@ -8,6 +8,9 @@
 
 #include <string>
 #include <iostream>
+
+#include <Windows.h>
+
 using namespace std;
 
 //抽象管理者
@@ -32,12 +35,12 @@ public:
 
 		if (num < 500) //经理职权之内
 		{
-			wcout << "经理" << m_name << "批准" << name 
-				<< "加薪" << num << "元" << endl << endl;
+			std::cout << "经理." << m_name << "批准." << name 
+			<< "加薪." << num << "元." << std::endl << std::endl;
 		}
 		else
 		{
-			wcout << "经理" << m_name << "无法处理，交由总监处理" << endl;
+			cout << "经理" << m_name << "无法处理，交由总监处理" << endl;
 			m_manager->DealWithRequest(name, num);
 		}
 	}
@@ -79,6 +82,8 @@ public:
 // 客户调用方式为：
 int main()
 {
+    SetConsoleOutputCP(CP_UTF8);
+ 
 	Manager *general = new GeneralManager(nullptr, "A"); //设置上级，总经理没有上级
 	Manager *majordomo = new Majordomo(general, "B"); //设置上级
 	Manager *common = new CommonManager(majordomo, "C"); //设置上级
