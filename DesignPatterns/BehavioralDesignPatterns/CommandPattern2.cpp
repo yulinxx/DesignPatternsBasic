@@ -1,3 +1,4 @@
+
 #include <iostream>
 
 using namespace std;
@@ -54,9 +55,13 @@ private:
 	Receiver* receiver;
 };
 
+
+///////////////////////////////////////////////////////
 // 客户
 int main(int argc, char* argv[])
 {
+	std::cout<<"行为型模式 之 命令模式 2\n\n"; 
+
 	// 客户要告知命令发给谁？
 	Receiver* receiver = new Receiver();
 

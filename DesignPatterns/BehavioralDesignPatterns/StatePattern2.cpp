@@ -1,11 +1,4 @@
-/*
- * @Author: xx xx@ubuntu.com
- * @Date: 2022-07-03 20:06:06
- * @LastEditors: xx xx@ubuntu.com
- * @LastEditTime: 2022-07-24 10:17:31
- * @FilePath: /DesignPatternsBasic/DesignPatterns/BehavioralDesignPatterns/StatePattern2.cpp
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- */
+
 // 1. 情景与意图
 //   一个对象可以有很多的状态，不同的状态，对象就会有不同的行为。比如文件如果是只读的状态，那么就只能读不能写入，如果是只写的，那就不能读，再或者是读写的。在对象的状态改变时，其可以支持的行为也应该改变。
 //   如何实现这个设计——状态模式。
@@ -19,6 +12,7 @@
 //   状态模式的实现，就是将枚举的状态，抽象成对象。首先我们先定义状态。
 
 #include <string>
+#include <iostream>
 
 class Context;
 class DPNetworkState
@@ -107,8 +101,12 @@ std::string DPNetworkStateUnknow::descriptionString()
     return std::string("Unknow");
 }
 
+
+///////////////////////////////////////////////////////
 int main()
 {
+    std::cout<<"行为型模式 之 状态模式(state pattern) 2\n\n";
+
     Context context;
     DPNetworkState *state = new DPNetworkStateWIFI();
     state->doAction(context);

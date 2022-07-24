@@ -115,10 +115,13 @@ public:
 	void CurrentState(War *war) { Prophase(war); }
 };
 
-///////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////
 // 测试案例
 int main()
 {
+	std::cout<<"行为型模式 之 状态模式(state pattern)\n\n";
+
 	War *pWar = new War(new ProphaseState());
 	for (int i = 1; i < 40; i += 5)
 	{

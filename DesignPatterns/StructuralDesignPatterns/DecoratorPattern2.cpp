@@ -1,3 +1,11 @@
+/*
+ * @Author: xx xx@ubuntu.com
+ * @Date: 2022-06-26 16:37:21
+ * @LastEditors: xx xx@ubuntu.com
+ * @LastEditTime: 2022-07-24 22:10:58
+ * @FilePath: /DesignPatternsBasic/DesignPatterns/StructuralDesignPatterns/DecoratorPattern2.cpp
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 // 装饰模式(Decorator Pattern)
 
 /*******************************************
@@ -75,9 +83,12 @@ public:
 	}
 };
 
-/////////////////////////////////////
+
+///////////////////////////////////////////////////////
 int main()
 {
+	std::cout<<"结构型模式 之 装饰模式(Decorator Pattern)\n\n";
+	
 	Tank *pTank = new T50();
 	Decorator *pDecorator = new Decorator();
 	pDecorator->decorator(pTank);

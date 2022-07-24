@@ -142,9 +142,12 @@ private:
 
 SingletonC SingletonC::intence;
 
-////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////
 int main()
 {
+	std::cout<<"创建型模式 之 单例模式 \n\n";
+
 	auto &a = Singleton::get_instance();
 	auto &b = Singleton::get_instance();
 	assert(&a == &b);

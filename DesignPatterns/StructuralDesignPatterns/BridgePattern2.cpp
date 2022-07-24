@@ -80,9 +80,13 @@ public:
 		OS->doPlay();
 	}
 };
-// ------------------------
+
+
+///////////////////////////////////////////////////////
 int main(void)
 {
+	std::cout<<"结构型模式 之 桥接模式(Bridge Pattern) 2\n\n";
+	
 	Player *mp3Player = new MP3Player;
 	mp3Player->setOS(new Linux);
 	mp3Player->play();

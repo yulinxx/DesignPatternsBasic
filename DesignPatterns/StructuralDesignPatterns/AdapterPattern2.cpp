@@ -1,3 +1,4 @@
+
 // 适配器模式(Adapter Pattern)
 
 #include <iostream>
@@ -33,9 +34,12 @@ public:
 	}
 };
 
-/////////////////////////////////////
+
+///////////////////////////////////////////////////////
 int main()
 {
+	std::cout<<"结构型模式 之 适配器模式 2 \n\n";
+
 	// Create adapter and place a request
 	Target *t = new Adapter();
 	t->Request();

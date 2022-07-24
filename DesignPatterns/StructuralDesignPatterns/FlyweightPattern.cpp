@@ -107,6 +107,8 @@ public:
 // 客户的使用方式
 int main()
 {
+	std::cout<<"结构型模式 之 享元模式(Flyweight Pattern)\n\n";
+
 	PieceBoard pieceBoard("A", "B");
 	pieceBoard.SetPiece(BLACK, PiecePos(4, 4));
 	pieceBoard.SetPiece(WHITE, PiecePos(4, 16));

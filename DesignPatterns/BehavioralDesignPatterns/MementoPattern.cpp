@@ -87,10 +87,13 @@ private:
 	vector<Memento> m_vecMemento;
 };
 
-/////////////////////////////////////
+
+///////////////////////////////////////////////////////
 //测试案例
 int main()
 {
+	std::cout<<"行为型模式 之 备忘录模式\n\n";
+
 	CareTake caretake;
 	GameRole role;
 

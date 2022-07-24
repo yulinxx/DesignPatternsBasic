@@ -81,10 +81,13 @@ private:
 	void AddDecorate() { cout << "屏幕贴膜" << endl; } // 增加的装饰
 };
 
-/////////////////////////////////////
+
+///////////////////////////////////////////////////////
 // 客户使用方式：
 int main()
 {
+	std::cout<<"结构型模式 之 装饰模式(Decorator Pattern)\n\n";
+
 	Phone *pPohone = new NokiaPhone("6300");
 	Phone *dpa = new DecoratorPhoneA(pPohone); // 装饰，增加挂件
 	Phone *dpb = new DecoratorPhoneB(dpa);    // 装饰，屏幕贴膜

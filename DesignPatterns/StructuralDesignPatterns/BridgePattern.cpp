@@ -1,3 +1,11 @@
+/*
+ * @Author: xx xx@ubuntu.com
+ * @Date: 2022-06-26 16:37:21
+ * @LastEditors: xx xx@ubuntu.com
+ * @LastEditTime: 2022-07-24 22:15:46
+ * @FilePath: /DesignPatternsBasic/DesignPatterns/StructuralDesignPatterns/BridgePattern.cpp
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 //桥接模式(Bridge Pattern)
 // 桥接模式：将抽象部分与实现部分分离，使它们都可以独立变换。
 
@@ -57,10 +65,13 @@ public:
 	void InstallOS(OS *pOS) { pOS->InstallOS_Imp(); }
 };
 
-/////////////////////////////////////
+
+///////////////////////////////////////////////////////
 // 客户使用方式：
 int main()
 {
+	std::cout<<"结构型模式 之 桥接模式(Bridge Pattern) \n\n";
+
 	OS *pOSWnd = new WindowOS();
 	OS *pOSLinux = new LinuxOS();
 

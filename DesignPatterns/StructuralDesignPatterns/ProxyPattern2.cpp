@@ -20,7 +20,8 @@ auto_ptr 的好处在于为动态分配的对象提供异常安全。
 下面给出智能指针的一种实现，采用了引用计数的策略。
 */
 
-#include <cstddef>
+// #include <cstddef>
+#include <iostream>
 
 template<class T>
 class auto_ptr {
@@ -102,7 +103,9 @@ private:
 };
 
 
+///////////////////////////////////////////////////////
 int main()
 {
+	std::cout<<"结构型模式 之 代理模式(Proxy Pattern) 2\n\n";
 	return 0;
 }

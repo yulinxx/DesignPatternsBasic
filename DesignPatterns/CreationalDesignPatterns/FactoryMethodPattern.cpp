@@ -2,10 +2,11 @@
  * @Author: xx xx@ubuntu.com
  * @Date: 2022-07-24 18:00:47
  * @LastEditors: xx xx@ubuntu.com
- * @LastEditTime: 2022-07-24 10:32:24
+ * @LastEditTime: 2022-07-24 22:22:10
  * @FilePath: /DesignPatternsBasic/DesignPatterns/CreationalDesignPatterns/FactoryMethodPattern.cpp
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
+
 // 工厂模式
 // 在工厂模式中，我们在创建对象时不会对客户端暴露创建逻辑，并且是通过使用一个共同的接口来指向新创建的对象。工厂模式作为一种创建模式，一般在创建复杂对象时，考虑使用；在创建简单对象时，建议直接new完成一个实例对象的创建。
 
@@ -75,7 +76,9 @@ public:
 };
 
 
+///////////////////////////////////////////////////////
 int main()
 {
+	std::cout<<"创建型模式 之 工厂方法模式 \n\n";
 	return 0;
 }

@@ -16,11 +16,14 @@ set(DESIGNPATTERNS
 message(STATUS "__CMAKE_CURRENT_SOURCE_DIR:" ${CMAKE_CURRENT_SOURCE_DIR})
 message(STATUS "__PROJECT_SOURCE_DIR " ${PROJECT_SOURCE_DIR})
 
+set(coun 0)
 foreach(SUB_DIR ${DESIGNPATTERNS})
     message(STATUS "---${SUB_DIR}")
 
     file(GLOB SRC "${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}/${SUB_DIR}/*.cpp")
     message(STATUS "---all cpp: ${SRC}")
+    set(index 0)
+
     foreach(CPP ${SRC})
         message(STATUS "---Create Exe: ${CPP}")
 
@@ -28,7 +31,11 @@ foreach(SUB_DIR ${DESIGNPATTERNS})
         STRING(REGEX REPLACE ".+/(.+)\\..*" "\\1" FILE_NAME ${CPP})
         MESSAGE(" --- FILE_NAME"  ${FILE_NAME})
 
-        add_executable(${SUB_DIR}_${FILE_NAME} ${CPP})
+        # add_executable(${SUB_DIR}_${index}_${FILE_NAME}_${coun} ${CPP})
+        add_executable(${SUB_DIR}_${index}_${FILE_NAME} ${CPP})
+        
+        math(EXPR index "${index} + 1")
+        math(EXPR coun "${count} + 1")
 
     endforeach(CPP)    
 

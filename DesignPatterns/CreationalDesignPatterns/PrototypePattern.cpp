@@ -107,9 +107,12 @@ void ResumeB::Show() {
 	cout << "ResumeB name : " << name << endl;
 }
 
-/////////////////////////////////////
+
+///////////////////////////////////////////////////////
 int main(int argc, char* argv[])
 {
+	std::cout<<"创建型模式 之 原型模式PrototypePattern \n\n";
+
 	Resume *r1 = new ResumeA("A");
 	Resume *r2 = new ResumeB("B");
 	Resume *r3 = r1->Clone();

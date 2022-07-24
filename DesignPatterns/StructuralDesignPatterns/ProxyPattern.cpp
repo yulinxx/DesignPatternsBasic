@@ -58,10 +58,13 @@ public:
 	}
 };
 
-/////////////////////////////////////
+
+///////////////////////////////////////////////////////
 // 客户调用：
 int main()
 {
+	std::cout<<"结构型模式 之 代理模式(Proxy Pattern)\n\n";
+
 	Image *image = new BigImageProxy("proxy.jpg"); //代理
 	image->Show(); //需要时由代理负责打开
 	delete image;
