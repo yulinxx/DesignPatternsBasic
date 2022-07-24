@@ -92,7 +92,7 @@ public:
 /////////////////////////////////////
 //相比方式一，这种方式用起来方便多了。其实这种方式将简单工厂模式与策略模式结合在一起，
 // 算法的定义使用了策略模式，而Cache的定义其实使用了简单工厂模式。
-int main()
+int main2()
 {
 	CacheB cache(LRU); //指定标签即可
 	cache.Replace();
@@ -121,7 +121,7 @@ public:
 
 /////////////////////////////////////
 // 使用方式如下：
-int main()
+int main3()
 {
 	CacheC<Random_ReplaceAlgorithm> cache; //模板实参
 	cache.Replace();

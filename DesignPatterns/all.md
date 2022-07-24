@@ -226,7 +226,7 @@ int main()
 ```
 /*
 * 关键代码：在一个工厂里聚合多个同类产品。
-* 以下代码以白色衣服和黑色衣服为例，白色衣服为一个产品系列，黑色衣服为一个产品系列。白色上衣搭配白色裤子，   黑色上衣搭配黑色裤字。每个系列的衣服由一个对应的工厂创建，这样一个工厂创建的衣服能保证衣服为同一个系列。
+* 以下代码以白色衣服和黑色衣服为例，白色衣服为一个产品系列，黑色衣服为一个产品系列。白色上衣搭配白色裤子,  黑色上衣搭配黑色裤字。每个系列的衣服由一个对应的工厂创建，这样一个工厂创建的衣服能保证衣服为同一个系列。
 */
 ​
 //抽象上衣类
@@ -378,7 +378,7 @@ public:
     virtual void blood() = 0;
 };
 ​
-//具体的策略实现类，具体实现接口， Adc持续普通攻击
+//具体的策略实现类，具体实现接口,Adc持续普通攻击
 class AdcHurt : public Hurt
 {
 public:
@@ -388,7 +388,7 @@ public:
     }
 };
 ​
-//具体的策略实现类，具体实现接口， Apc技能攻击
+//具体的策略实现类，具体实现接口,Apc技能攻击
 class ApcHurt : public Hurt
 {
 public:
@@ -398,7 +398,7 @@ public:
     }
 };
 ​
-//环境角色类， 游戏角色战士，传入一个策略类指针参数。
+//环境角色类,游戏角色战士，传入一个策略类指针参数。
 class Soldier
 {
 public:
@@ -422,7 +422,7 @@ typedef enum
     Hurt_Type_Num
 }HurtType;
 ​
-//环境角色类， 游戏角色法师，传入一个策略标签参数。
+//环境角色类,游戏角色法师，传入一个策略标签参数。
 class Mage
 {
 public:
@@ -455,7 +455,7 @@ private:
     Hurt* m_pHurt;
 };
 ​
-//环境角色类， 游戏角色弓箭手，实现模板传递策略。
+//环境角色类,游戏角色弓箭手，实现模板传递策略。
 template<typename T>
 class Archer
 {
@@ -496,7 +496,7 @@ void apcHurt()
     std::cout << "Apc Hurt" << std::endl;
 }
 ​
-//环境角色类， 使用传统的函数指针
+//环境角色类,使用传统的函数指针
 class Soldier
 {
 public:
@@ -512,7 +512,7 @@ private:
     Function m_fun;
 };
 ​
-//环境角色类， 使用std::function<>
+//环境角色类,使用std::function<>
 class Mage
 {
 public:
@@ -553,7 +553,7 @@ int main()
   双端队列可以在头尾删减或增加元素。而栈是一种先进后出的数据结构，添加数据时添加到栈的顶部，删除数据时先删   除栈顶部的数据。因此我们完全可以将一个现有的双端队列适配成一个栈。
 */
 ​
-//双端队列， 被适配类
+//双端队列,被适配类
 class Deque
 {
 public:
@@ -1198,7 +1198,7 @@ public:
     virtual void shutdown() = 0;
 };
 ​
-//子控件， 主机
+//子控件,主机
 class Host : public Control
 {
 public:
@@ -1212,7 +1212,7 @@ public:
     }
 };
 ​
-//子控件， 显示屏
+//子控件,显示屏
 class LCDDisplay : public Control
 {
 public:
@@ -1226,7 +1226,7 @@ public:
     }
 };
 ​
-//子控件， 外部设备
+//子控件,外部设备
 class Peripheral : public Control
 {
 public:
@@ -2332,7 +2332,7 @@ public:
     virtual const string& name() = 0;
 };
 ​
-//具体的被观察类， 整数模型
+//具体的被观察类,整数模型
 class IntDataModel:public DataModel
 {
 public:
