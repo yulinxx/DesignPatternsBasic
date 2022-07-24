@@ -21,9 +21,8 @@ foreach(SUB_DIR ${DESIGNPATTERNS})
 
     file(GLOB SRC "${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}/${SUB_DIR}/*.cpp")
     message(STATUS "---all cpp: ${SRC}")
-
     foreach(CPP ${SRC})
-        message(STATUS "__Create Exe: ${CPP}")
+        message(STATUS "---Create Exe: ${CPP}")
 
         MESSAGE(${CPP})
         STRING(REGEX REPLACE ".+/(.+)\\..*" "\\1" FILE_NAME ${CPP})
