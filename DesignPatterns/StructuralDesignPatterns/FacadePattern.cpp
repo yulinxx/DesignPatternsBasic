@@ -1,3 +1,11 @@
+/*
+ * @Author: xx xx@ubuntu.com
+ * @Date: 2022-07-24 10:52:15
+ * @LastEditors: xx xx@ubuntu.com
+ * @LastEditTime: 2022-07-24 11:01:38
+ * @FilePath: /DesignPatternsBasic/DesignPatterns/StructuralDesignPatterns/FacadePattern.cpp
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 // 外观模式(Facade Pattern)
 // 外观模式：为子系统中的一组接口定义一个一致的界面；外观模式提供一个高层的接口，这个接口使得这一子系统更加容易被使用；
 // 对于复杂的系统，系统为客户端提供一个简单的接口，把负责的实现过程封装起来，客户端不需要连接系统内部的细节。
@@ -28,12 +36,11 @@ public:
     virtual void shutdown() = 0;
 };
 
-​
 //子控件， 主机
 class Host : public Control
 {
 public:
-    void start() override
+    virtual void start() override
     {
         cout << "Host start" << endl;
     }
@@ -42,12 +49,12 @@ public:
         cout << "Host shutdown" << endl;
     }
 };
-​
+
 //子控件， 显示屏
 class LCDDisplay : public Control
 {
 public:
-    void start() override
+    virtual void start() override
     {
         cout << "LCD Display start" << endl;
     }
@@ -56,12 +63,12 @@ public:
         cout << "LCD Display shutdonw" << endl;
     }
 };
-​
+
 //子控件， 外部设备
 class Peripheral : public Control
 {
 public:
-    void start() override
+    virtual void start() override
     {
         cout << "Peripheral start" << endl;
     }
@@ -70,11 +77,11 @@ public:
         cout << "Peripheral shutdown" << endl;
     }
 };
-​
+
 class Computer
 {
 public:
-    void start()
+    virtual void start()
     {
         m_host.start();
         m_display.start();
@@ -93,16 +100,12 @@ private:
     LCDDisplay m_display;
     Peripheral   m_peripheral;
 };
-​
-/////////////////////////////////////
+
 int main()
 {
     Computer computer;
     computer.start();
-​
-    //do something
-​
+    // do something
     computer.shutdown();
-​
     return 0;
 }
